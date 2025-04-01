@@ -58,6 +58,12 @@ export function Sidebar({ className, onNavigate, currentPage = "portfolio", isMo
                 Portfolio
               </button>
               <button 
+                onClick={() => handleNavClick("github")}
+                className={`text-left py-2 ${currentPage === "github" ? "text-primary font-medium" : "text-gray-600"}`}
+              >
+                GitHub Stats
+              </button>
+              <button 
                 onClick={() => handleNavClick("stats")}
                 className={`text-left py-2 ${currentPage === "stats" ? "text-primary font-medium" : "text-gray-600"}`}
               >
@@ -93,6 +99,13 @@ export function Sidebar({ className, onNavigate, currentPage = "portfolio", isMo
           style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
         >
           Portfolio
+        </a>
+        <a 
+          href="#github" 
+          className="nav-item rotate-180 text-gray-500 hover:text-primary transition-all font-medium tracking-wide mb-8"
+          style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
+        >
+          GitHub
         </a>
         <a 
           href="#stats" 

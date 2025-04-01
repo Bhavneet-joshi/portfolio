@@ -12,6 +12,7 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import { AboutPage } from "@/components/portfolio/AboutPage";
 import { PortfolioPage } from "@/components/portfolio/PortfolioPage";
 import { StatsPage } from "@/components/portfolio/StatsPage";
+import { GitHubPage } from "@/components/portfolio/GitHubPage";
 
 export default function Home() {
   const { name, email, status, stats } = PORTFOLIO_DATA;
@@ -30,6 +31,7 @@ export default function Home() {
         
         {currentPage === "about" && <AboutPage />}
         {currentPage === "portfolio" && <PortfolioPage />}
+        {currentPage === "github" && <GitHubPage />}
         {currentPage === "stats" && <StatsPage />}
         {currentPage === "clients" && (
           <div className="bg-white min-h-[calc(100vh-65px)] p-6">
@@ -75,9 +77,10 @@ export default function Home() {
                   {/* Stats row - Two cards side by side */}
                   <div className="grid grid-cols-2 gap-5">
                     <StatsCard 
-                      count={stats.projects} 
+                      count={11} 
                       label="GitHub Projects" 
                       color="secondary" 
+                      onClick={() => handleNavigate("github")}
                     />
                     <StatsCard 
                       count={stats.awards} 
