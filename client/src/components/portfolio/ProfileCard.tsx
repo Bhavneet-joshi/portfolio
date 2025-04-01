@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Mail } from "lucide-react";
+import { Mail, Info } from "lucide-react";
 
 interface ProfileCardProps {
   name: string;
@@ -8,6 +8,11 @@ interface ProfileCardProps {
 }
 
 export function ProfileCard({ name, email, status }: ProfileCardProps) {
+  // Split the name into parts for styling
+  const nameParts = name.split(" ");
+  const firstName = nameParts[0];
+  const lastName = nameParts.slice(1).join(" ");
+  
   return (
     <motion.div 
       initial={{ y: 10, opacity: 0 }}
@@ -18,9 +23,7 @@ export function ProfileCard({ name, email, status }: ProfileCardProps) {
       <div className="flex flex-col h-full">
         <div className="flex items-start justify-between mb-6">
           <div className="flex items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 text-white/80" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
+            <Info className="h-5 w-5 mr-2 text-white/80" />
             <span className="font-medium">About Me</span>
           </div>
         </div>
@@ -36,8 +39,10 @@ export function ProfileCard({ name, email, status }: ProfileCardProps) {
           </div>
           
           <div className="text-center md:text-left">
-            <p className="text-xl text-white/80">I'm,</p>
-            <h1 className="text-4xl font-bold mb-1">{name}</h1>
+            <p className="text-xl text-white/80 mb-1">I'm,</p>
+            <h1 className="text-5xl font-bold">{firstName}</h1>
+            <h1 className="text-5xl font-bold mb-1">{lastName}</h1>
+            
             <div className="mt-6 inline-block">
               <a href={`mailto:${email}`} className="text-sm text-white/80 flex items-center hover:text-white">
                 <span>{email}</span>
@@ -47,10 +52,21 @@ export function ProfileCard({ name, email, status }: ProfileCardProps) {
           </div>
         </div>
         
-        <div className="mt-auto">
+        <div className="mt-auto flex justify-between items-center">
           <div className="inline-flex items-center bg-black/20 rounded-full py-1 px-3 text-xs">
             <div className="w-2 h-2 bg-green-400 rounded-full mr-2"></div>
             <span>{status}</span>
+          </div>
+          
+          <div className="w-16 h-16 relative">
+            <div className="w-full h-full rounded-full border-2 border-dashed border-white/40 animate-spin-slow flex items-center justify-center">
+              <div className="w-2 h-2 bg-white rounded-full absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
+            </div>
+            <div className="absolute inset-0 flex items-center justify-center">
+              <svg viewBox="0 0 24 24" className="w-8 h-8 text-white" fill="currentColor">
+                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+              </svg>
+            </div>
           </div>
         </div>
       </div>
