@@ -70,7 +70,7 @@ export default function Home() {
                   <div className="grid grid-cols-2 gap-4 md:gap-6">
                     <StatsCard 
                       count={stats.projects} 
-                      label="Projects" 
+                      label="GitHub Projects" 
                       color="secondary" 
                     />
                     <StatsCard 
