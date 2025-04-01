@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
+import { Briefcase, GraduationCap, Code } from "lucide-react";
 import { PORTFOLIO_DATA } from "@/lib/constants";
 
 export function AboutPage() {
-  const { name, bio } = PORTFOLIO_DATA;
+  const { name, bio, education, clients, skills } = PORTFOLIO_DATA;
   
   // Split the name into parts for styling
   const nameParts = name.split(" ");
@@ -30,19 +31,87 @@ export function AboutPage() {
             <div className="w-2 h-2 bg-white rounded-full absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
           </div>
           <div className="absolute inset-0 flex items-center justify-center">
-            <span className="text-xs text-white font-bold">2023</span>
+            <span className="text-xs text-white font-bold">2024</span>
           </div>
         </div>
       </div>
       
-      <h2 className="text-xl font-bold mb-4">About Me</h2>
-      
-      <div className="space-y-4">
-        {bio.map((paragraph, index) => (
-          <p key={index} className="text-gray-700 leading-relaxed">
-            {paragraph}
-          </p>
-        ))}
+      <div className="space-y-8">
+        {/* About section */}
+        <section>
+          <h2 className="text-xl font-bold mb-4 flex items-center">
+            <span className="bg-primary/10 p-2 rounded-full mr-2">
+              <Code className="h-5 w-5 text-primary" />
+            </span>
+            About Me
+          </h2>
+          
+          <div className="space-y-4">
+            {bio.map((paragraph, index) => (
+              <p key={index} className="text-gray-700 leading-relaxed">
+                {paragraph}
+              </p>
+            ))}
+          </div>
+        </section>
+        
+        {/* Experience section */}
+        <section>
+          <h2 className="text-xl font-bold mb-4 flex items-center">
+            <span className="bg-primary/10 p-2 rounded-full mr-2">
+              <Briefcase className="h-5 w-5 text-primary" />
+            </span>
+            Experience
+          </h2>
+          
+          <div className="space-y-4">
+            {clients.map((client, index) => (
+              <div key={index} className="border-l-2 border-primary pl-4 pb-4">
+                <h3 className="font-bold text-lg">{client.name}</h3>
+                <p className="text-gray-500">{client.description}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+        
+        {/* Education section */}
+        <section>
+          <h2 className="text-xl font-bold mb-4 flex items-center">
+            <span className="bg-primary/10 p-2 rounded-full mr-2">
+              <GraduationCap className="h-5 w-5 text-primary" />
+            </span>
+            Education
+          </h2>
+          
+          <div className="space-y-4">
+            {education.map((edu, index) => (
+              <div key={index} className="border-l-2 border-primary pl-4 pb-4">
+                <h3 className="font-bold text-lg">{edu.institution}</h3>
+                <p className="text-gray-700">{edu.degree}</p>
+                <div className="flex justify-between text-sm text-gray-500 mt-1">
+                  <span>{edu.period}</span>
+                  <span>{edu.score}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+        
+        {/* Skills section */}
+        <section>
+          <h2 className="text-xl font-bold mb-4">Skills</h2>
+          
+          <div className="flex flex-wrap gap-2">
+            {skills.map((skill, index) => (
+              <span 
+                key={index} 
+                className="bg-primary/10 text-primary rounded-full px-3 py-1 text-sm"
+              >
+                {skill}
+              </span>
+            ))}
+          </div>
+        </section>
       </div>
     </motion.div>
   );

@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
-import { Maximize2, Play } from "lucide-react";
+import { ExternalLink, Github, Maximize2, Play } from "lucide-react";
 import { useState } from "react";
 import { PORTFOLIO_DATA } from "@/lib/constants";
-import { getFeaturedProjects } from "@/lib/projects";
+import { getFeaturedProjects, getProjectById } from "@/lib/projects";
 
 interface VideoModalProps {
   isOpen: boolean;
@@ -50,14 +50,12 @@ interface FeaturedProjectCardProps {
 
 export function FeaturedProjectCard({ onProjectClick }: FeaturedProjectCardProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const featuredProjects = getFeaturedProjects(1);
+  const project = featuredProjects[0] || getProjectById("1");
   
-  // Use the flamingo image to match the design in the attached PNG
-  const project = {
-    id: "1",
-    title: "Flamingo Scene",
-    description: "Beautiful tropical scene featuring a flamingo among exotic plants",
-    imageUrl: "https://images.unsplash.com/photo-1557800636-894a64c1696f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-  };
+  const { featuredProject } = PORTFOLIO_DATA;
+  const videoUrl = featuredProject?.videoUrl || "";
+  const githubUrl = project?.githubUrl || featuredProject?.githubUrl || "";
   
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
@@ -67,6 +65,13 @@ export function FeaturedProjectCard({ onProjectClick }: FeaturedProjectCardProps
       onProjectClick(project.id);
     } else {
       openModal();
+    }
+  };
+
+  const openGithub = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (githubUrl) {
+      window.open(githubUrl, '_blank');
     }
   };
   
@@ -79,6 +84,12 @@ export function FeaturedProjectCard({ onProjectClick }: FeaturedProjectCardProps
         className="rounded-[20px] overflow-hidden relative cursor-pointer group"
         onClick={handleCardClick}
       >
+        {/* Project title overlay */}
+        <div className="absolute bottom-0 left-0 right-0 p-4 z-30 bg-gradient-to-t from-black/80 to-transparent">
+          <h3 className="text-white text-xl font-bold">{project.title}</h3>
+          <p className="text-white/80 text-sm line-clamp-2">{project.description}</p>
+        </div>
+
         {/* Featured project image */}
         <div className="relative overflow-hidden aspect-video">
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/30 z-10"></div>
@@ -92,11 +103,20 @@ export function FeaturedProjectCard({ onProjectClick }: FeaturedProjectCardProps
             <Maximize2 className="h-3 w-3 text-white" />
           </div>
           
-          {/* Play button */}
-          <div className="absolute inset-0 flex items-center justify-center z-20">
+          {/* Action buttons */}
+          <div className="absolute inset-0 flex items-center justify-center gap-4 z-20">
             <div className="bg-white/30 backdrop-blur-sm rounded-full p-3 hover:bg-white/40 transition-colors">
               <Play className="h-8 w-8 text-white" fill="white" />
             </div>
+            
+            {githubUrl && (
+              <div 
+                className="bg-white/30 backdrop-blur-sm rounded-full p-3 hover:bg-white/40 transition-colors"
+                onClick={openGithub}
+              >
+                <Github className="h-8 w-8 text-white" />
+              </div>
+            )}
           </div>
         </div>
       </motion.div>
@@ -104,7 +124,7 @@ export function FeaturedProjectCard({ onProjectClick }: FeaturedProjectCardProps
       <VideoModal 
         isOpen={isModalOpen} 
         onClose={closeModal} 
-        videoUrl="https://www.youtube.com/embed/dQw4w9WgXcQ"
+        videoUrl={videoUrl ? `https://www.youtube.com/embed/${videoUrl.split('v=')[1] || 'dQw4w9WgXcQ'}` : undefined}
       />
     </>
   );

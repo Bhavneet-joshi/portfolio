@@ -1,0 +1,46 @@
+Bhavneet Joshi
+ 6239-758-470 # bhavneetjoshi909@gmail.com ï bhavneet-joshi § Bhavneet-joshi
+Objective
+Highly motivated Full Stack Developer with expertise in multiple programming languages, known for clean and efficient code,
+seeking a challenging position to create user-friendly websites and applications, leveraging technical skills and creativity to
+drive company growth.
+Technical Skills
+Languages / Database Intermediate
+• C, C++, Java Script, SQL, Java
+Frontend Development Intermediate
+• React, Bootstrap, Tailwind CSS
+Experience
+SMCK OCT 2024 – Present
+Junior Engineer
+• Acquired extensive experience in creating complex SQL queries, including procedures and subqueries, to optimize data
+retrieval, manipulation, and analysis.
+• Developed foundational networking skills to ensure seamless connectivity and communication across system components.
+Global Engineers JAN 2024 – Oct 2024
+Trainee Engineer
+• Gained hands-on experience in writing complex SQL queries for data retrieval, manipulation, and analysis.
+• Assisted in the maintenance and administration of relational software that mainly focus on asrs system.
+Accenture Aug 2023 – Sep 2023
+Virtual Internship
+• Exploration of diverse roles in the tech sector and understanding the Software Development Lifecycle (SDLC).
+• Visualization of financial data using Matplotlib and Plotly.
+Projects
+Newspaper | GitHub
+• Crafting the Newspaper App offered immersive exposure to full-stack development, synergizing Java’s backend logic with
+SQL’s database management for a robust system encompassing newspaper distribution, billing, and assignments.
+• Strategizing the schema for Customers, Hawkers, Newspapers, and Billings underscored the significance of meticulous
+database design. Building relationships between tables cultivated expertise in data management, ensuring accuracy and
+consistency.
+Picture Pass | GitHub
+• Used React.js for dynamic data integration from external APIs.
+• Employed Tailwind CSS and Material UI for an adaptive, visually appealing interface.
+Medcare | GitHub
+• Created a user-friendly platform for seamless medicine donation and distribution using Bootstrap, Node.js, MySQL, and
+Tailwind CSS.
+• Utilized Tailwind CSS and Material UI for a responsive and appealing design.
+Education
+Giani Zail Singh Campus College of Engineering Technology 2020 – 2024
+B.Tech in Computer Science Engineering CGPA: 7.28
+Eastwood International School 2019 – 2020
+Senior Secondary School Percentage: 80%
+R B D A V Sr. Sec. Public School 2006 – 2018
+Secondary School Percentage: 70%

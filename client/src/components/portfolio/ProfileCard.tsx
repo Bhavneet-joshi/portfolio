@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { Mail, Info } from "lucide-react";
+import { Mail, Info, Phone } from "lucide-react";
+import { PORTFOLIO_DATA } from "@/lib/constants";
 
 interface ProfileCardProps {
   name: string;
@@ -12,6 +13,7 @@ export function ProfileCard({ name, email, status }: ProfileCardProps) {
   const nameParts = name.split(" ");
   const firstName = nameParts[0];
   const lastName = nameParts.slice(1).join(" ");
+  const phone = PORTFOLIO_DATA.phone || "";
   
   return (
     <motion.div 
@@ -43,11 +45,17 @@ export function ProfileCard({ name, email, status }: ProfileCardProps) {
             <h1 className="text-5xl font-bold">{firstName}</h1>
             <h1 className="text-5xl font-bold mb-4">{lastName}</h1>
             
-            <div className="mt-4 inline-block">
-              <a href={`mailto:${email}`} className="text-sm text-white/80 flex items-center hover:text-white">
+            <div className="mt-4 space-y-2">
+              <a href={`mailto:${email}`} className="text-sm text-white/80 flex items-center justify-center hover:text-white">
                 <span>{email}</span>
                 <Mail className="h-4 w-4 ml-2" />
               </a>
+              {phone && (
+                <a href={`tel:${phone}`} className="text-sm text-white/80 flex items-center justify-center hover:text-white">
+                  <span>{phone}</span>
+                  <Phone className="h-4 w-4 ml-2" />
+                </a>
+              )}
             </div>
           </div>
         </div>
@@ -63,7 +71,7 @@ export function ProfileCard({ name, email, status }: ProfileCardProps) {
               <div className="w-2 h-2 bg-white rounded-full absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
             </div>
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="text-xs font-bold text-white">2023</div>
+              <div className="text-xs font-bold text-white">2024</div>
             </div>
           </div>
         </div>
