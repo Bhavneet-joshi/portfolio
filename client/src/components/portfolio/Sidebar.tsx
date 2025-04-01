@@ -75,6 +75,12 @@ export function Sidebar({ className, onNavigate, currentPage = "portfolio", isMo
                 Portfolio
               </button>
               <button 
+                onClick={() => handleNavClick("experience")}
+                className={`text-left py-2 ${currentPage === "experience" ? "text-primary font-medium" : "text-foreground/70"}`}
+              >
+                Experience
+              </button>
+              <button 
                 onClick={() => handleNavClick("github")}
                 className={`text-left py-2 ${currentPage === "github" ? "text-primary font-medium" : "text-foreground/70"}`}
               >
@@ -114,6 +120,7 @@ export function Sidebar({ className, onNavigate, currentPage = "portfolio", isMo
             href="#about" 
             className="nav-item rotate-180 text-foreground/70 hover:text-primary transition-all font-medium tracking-wide"
             style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
+            onClick={() => onNavigate && onNavigate("about")}
           >
             About
           </a>
@@ -121,13 +128,23 @@ export function Sidebar({ className, onNavigate, currentPage = "portfolio", isMo
             href="#portfolio" 
             className="nav-item rotate-180 text-foreground/70 hover:text-primary transition-all font-medium tracking-wide"
             style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
+            onClick={() => onNavigate && onNavigate("portfolio")}
           >
             Portfolio
+          </a>
+          <a 
+            href="#experience" 
+            className="nav-item rotate-180 text-foreground/70 hover:text-primary transition-all font-medium tracking-wide"
+            style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
+            onClick={() => onNavigate && onNavigate("experience")}
+          >
+            Experience
           </a>
           <a 
             href="#github" 
             className="nav-item rotate-180 text-foreground/70 hover:text-primary transition-all font-medium tracking-wide"
             style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
+            onClick={() => onNavigate && onNavigate("github")}
           >
             GitHub
           </a>
@@ -135,6 +152,7 @@ export function Sidebar({ className, onNavigate, currentPage = "portfolio", isMo
             href="#stats" 
             className="nav-item rotate-180 text-foreground/70 hover:text-primary transition-all font-medium tracking-wide"
             style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
+            onClick={() => onNavigate && onNavigate("stats")}
           >
             Stats
           </a>
@@ -142,6 +160,7 @@ export function Sidebar({ className, onNavigate, currentPage = "portfolio", isMo
             href="#clients" 
             className="nav-item rotate-180 text-foreground/70 hover:text-primary transition-all font-medium tracking-wide"
             style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
+            onClick={() => onNavigate && onNavigate("clients")}
           >
             Clients
           </a>
@@ -149,6 +168,7 @@ export function Sidebar({ className, onNavigate, currentPage = "portfolio", isMo
             href="#certificates" 
             className="nav-item rotate-180 text-foreground/70 hover:text-primary transition-all font-medium tracking-wide"
             style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
+            onClick={() => onNavigate && onNavigate("certificates")}
           >
             Certificates
           </a>

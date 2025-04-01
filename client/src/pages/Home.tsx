@@ -15,6 +15,7 @@ import { PortfolioPage } from "@/components/portfolio/PortfolioPage";
 import { StatsPage } from "@/components/portfolio/StatsPage";
 import { GitHubPage } from "@/components/portfolio/GitHubPage";
 import { CertificatesPage } from "@/components/portfolio/CertificatesPage";
+import { ExperiencePage } from "@/components/portfolio/ExperiencePage";
 
 export default function Home() {
   const { name, email, status, stats } = PORTFOLIO_DATA;
@@ -28,38 +29,66 @@ export default function Home() {
   // Mobile view with page switching
   if (isMobile) {
     return (
-      <div className="min-h-screen bg-gray-100">
+      <div className="min-h-screen bg-background">
         <Sidebar isMobile={true} currentPage={currentPage} onNavigate={handleNavigate} />
         
         {currentPage === "about" && <AboutPage />}
         {currentPage === "portfolio" && <PortfolioPage />}
-        {currentPage === "github" && <GitHubPage />}
+        {currentPage === "experience" && <ExperiencePage onBack={() => handleNavigate("portfolio")} />}
+        {currentPage === "github" && <GitHubPage onBack={() => handleNavigate("portfolio")} />}
         {currentPage === "stats" && <StatsPage />}
         {currentPage === "clients" && (
-          <div className="bg-white min-h-[calc(100vh-65px)] p-6">
+          <div className="bg-background min-h-[calc(100vh-65px)] p-6">
             <ClientsCard />
           </div>
         )}
         {currentPage === "certificates" && (
-          <div className="bg-white min-h-[calc(100vh-65px)] p-6">
+          <div className="bg-background min-h-[calc(100vh-65px)] p-6">
             <CertificatesPage onBack={() => handleNavigate("portfolio")} />
           </div>
         )}
         
-        <div className="text-center text-gray-500 text-xs p-4 border-t">
-          © {new Date().getFullYear()} {name} • Portfolio Template
+        <div className="text-center text-foreground/50 text-xs p-4 border-t border-border">
+          © {new Date().getFullYear()} {name} • Portfolio
         </div>
       </div>
     );
   }
   
-  // Desktop view
+  // Desktop view - Main view
+  if (currentPage !== "portfolio" && currentPage !== "about") {
+    return (
+      <div className="min-h-screen bg-background">
+        <div className="flex flex-col md:flex-row">
+          <Sidebar className="hidden md:block" onNavigate={handleNavigate} currentPage={currentPage} />
+          
+          <div className="flex-grow">
+            {currentPage === "experience" && <ExperiencePage onBack={() => handleNavigate("portfolio")} />}
+            {currentPage === "github" && <GitHubPage onBack={() => handleNavigate("portfolio")} />}
+            {currentPage === "stats" && <StatsPage />}
+            {currentPage === "clients" && (
+              <div className="bg-background min-h-[calc(100vh-65px)] p-6">
+                <ClientsCard />
+              </div>
+            )}
+            {currentPage === "certificates" && <CertificatesPage onBack={() => handleNavigate("portfolio")} />}
+          </div>
+        </div>
+        
+        <div className="text-center text-foreground/50 text-sm p-4 border-t border-border">
+          © {new Date().getFullYear()} {name} • Portfolio
+        </div>
+      </div>
+    );
+  }
+  
+  // Desktop view - Portfolio view
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center py-6 px-4">
+    <div className="min-h-screen bg-background flex items-center justify-center py-6 px-4">
       <div className="w-full max-w-6xl mx-auto">
-        <div className="bg-white rounded-[32px] shadow-xl overflow-hidden">
+        <div className="bg-card rounded-[32px] shadow-xl overflow-hidden border border-border">
           <div className="flex flex-col md:flex-row">
-            <Sidebar className="hidden md:block" />
+            <Sidebar className="hidden md:block" onNavigate={handleNavigate} />
             
             <div className="flex-grow p-5 md:p-8">
               <div className="grid grid-cols-1 md:grid-cols-12 gap-5">
@@ -75,14 +104,14 @@ export default function Home() {
                 {/* Right side content - Takes 7 columns on desktop */}
                 <div className="md:col-span-7 flex flex-col gap-5">
                   <div className="mb-1">
-                    <h2 className="text-5xl md:text-6xl font-black tracking-tighter">Portfolio</h2>
+                    <h2 className="text-5xl md:text-6xl font-black tracking-tighter text-foreground">Portfolio</h2>
                   </div>
                   
                   {/* Featured Project - Full width */}
                   <FeaturedProjectCard />
                   
-                  {/* Stats row - Two cards side by side */}
-                  <div className="grid grid-cols-2 gap-5">
+                  {/* Stats row - Three cards side by side */}
+                  <div className="grid grid-cols-3 gap-5">
                     <StatsCard 
                       count={11} 
                       label="GitHub Projects" 
@@ -95,10 +124,16 @@ export default function Home() {
                       color="primary" 
                       onClick={() => handleNavigate("github")}
                     />
+                    <StatsCard 
+                      count={3} 
+                      label="Experience" 
+                      color="secondary" 
+                      onClick={() => handleNavigate("experience")}
+                    />
                   </div>
                 </div>
                 
-                {/* Bottom row - Clients and Awards */}
+                {/* Bottom row - Clients and Certificates */}
                 <div className="md:col-span-5">
                   <ClientsCard />
                 </div>
@@ -113,8 +148,8 @@ export default function Home() {
           </div>
         </div>
         
-        <div className="text-center text-gray-500 text-sm mt-6">
-          © {new Date().getFullYear()} {name} • Portfolio Template • Interactive Demo
+        <div className="text-center text-foreground/50 text-sm mt-6">
+          © {new Date().getFullYear()} {name} • Portfolio
         </div>
       </div>
     </div>
