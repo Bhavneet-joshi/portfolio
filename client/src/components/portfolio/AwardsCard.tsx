@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
-import { Award, Maximize } from "lucide-react";
+import { Award, Maximize2 } from "lucide-react";
 import { useState } from "react";
 import { CountUp } from "./CountUp";
+import { PORTFOLIO_DATA } from "@/lib/constants";
 
 interface AwardsCardProps {
   count: number;
@@ -12,16 +13,8 @@ interface AwardsModalProps {
   onClose: () => void;
 }
 
-const awards = [
-  { name: "Web Design Excellence", year: 2023, category: "UI/UX Design" },
-  { name: "Design Innovation Award", year: 2023, category: "Mobile Design" },
-  { name: "Creative Portfolio Award", year: 2022, category: "Personal Portfolio" },
-  { name: "Best Navigation Experience", year: 2022, category: "User Experience" },
-  { name: "Visual Design Excellence", year: 2021, category: "Visual Design" },
-  { name: "Design Breakthrough", year: 2021, category: "Innovation" },
-];
-
 function AwardsModal({ isOpen, onClose }: AwardsModalProps) {
+  const { awards } = PORTFOLIO_DATA;
   if (!isOpen) return null;
   
   return (
@@ -45,7 +38,7 @@ function AwardsModal({ isOpen, onClose }: AwardsModalProps) {
             <div key={index} className="bg-white/20 backdrop-blur-md rounded-lg p-4 hover:bg-white/30 transition-colors">
               <h3 className="font-bold text-white text-xl">{award.name}</h3>
               <div className="flex justify-between items-center mt-2">
-                <span className="text-white/70">{award.category}</span>
+                <span className="text-white/70">{award.organization}</span>
                 <span className="bg-white/20 rounded-full px-3 py-1 text-sm">{award.year}</span>
               </div>
             </div>
@@ -95,61 +88,59 @@ export function AwardsCard({ count }: AwardsCardProps) {
   const [isAwardsModalOpen, setIsAwardsModalOpen] = useState(false);
   const [isVisualizerOpen, setIsVisualizerOpen] = useState(false);
   
-  const openAwardsModal = () => setIsAwardsModalOpen(true);
-  const closeAwardsModal = () => setIsAwardsModalOpen(false);
-  
-  const openVisualizer = () => setIsVisualizerOpen(true);
-  const closeVisualizer = () => setIsVisualizerOpen(false);
-  
   return (
-    <>
-      <div className="md:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
-        <motion.div 
-          initial={{ y: 10, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.4, delay: 0.4 }}
-          className="bg-dark rounded-3xl p-6 text-white transition-all duration-300 hover:shadow-lg hover:-translate-y-1 cursor-pointer"
-          onClick={openVisualizer}
-        >
-          <div className="flex flex-col h-full">
-            <div className="flex justify-end">
-              <div className="bg-white/10 backdrop-blur-md rounded-md p-1">
-                <Maximize className="h-5 w-5 text-white/60" />
-              </div>
-            </div>
-            <div className="my-auto text-center py-8">
-              <div className="rounded-full bg-gradient-to-br from-blue-300 to-pink-300 w-24 h-24 mx-auto flex items-center justify-center">
-                <div className="rounded-full bg-gradient-to-tl from-blue-400 to-pink-400 w-16 h-16"></div>
-              </div>
-            </div>
+    <div className="md:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
+      <motion.div 
+        initial={{ y: 10, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.4, delay: 0.4 }}
+        className="bg-[#F783AC] rounded-3xl overflow-hidden relative cursor-pointer group"
+        onClick={() => setIsVisualizerOpen(true)}
+      >
+        <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
+          <div className="bg-white/20 backdrop-blur-sm rounded-full p-1">
+            <Maximize2 className="h-3 w-3 text-white" />
           </div>
-        </motion.div>
+        </div>
         
-        <motion.div 
-          initial={{ y: 10, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.4, delay: 0.5 }}
-          className="bg-[#FFAA5A] rounded-3xl p-6 text-dark transition-all duration-300 hover:shadow-lg hover:-translate-y-1 cursor-pointer"
-          onClick={openAwardsModal}
-        >
-          <div className="flex flex-col h-full">
-            <div className="flex justify-end">
-              <div className="bg-white/10 backdrop-blur-md rounded-md p-1">
-                <Maximize className="h-5 w-5 text-dark/60" />
-              </div>
-            </div>
-            <div className="mt-auto">
-              <h3 className="text-4xl font-bold">
-                <CountUp end={count} />
-              </h3>
-              <p className="text-dark/70">Global Design <br/>Awards</p>
+        <div className="h-full flex items-center justify-center p-6">
+          <div className="rounded-full bg-gradient-to-br from-[#F783AC] to-[#F9A8D4] w-32 h-32 flex items-center justify-center">
+            <div className="rounded-full bg-gradient-to-tl from-[#D946EF] to-[#EC4899] w-24 h-24 flex items-center justify-center">
+              <div className="rounded-full bg-white w-4 h-4"></div>
             </div>
           </div>
-        </motion.div>
-      </div>
+        </div>
+      </motion.div>
       
-      <AwardsModal isOpen={isAwardsModalOpen} onClose={closeAwardsModal} />
-      <VisualizerModal isOpen={isVisualizerOpen} onClose={closeVisualizer} />
-    </>
+      <motion.div 
+        initial={{ y: 10, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.4, delay: 0.5 }}
+        className="bg-[#FFAA5A] rounded-3xl overflow-hidden relative cursor-pointer group"
+        onClick={() => setIsAwardsModalOpen(true)}
+      >
+        <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
+          <div className="bg-white/20 backdrop-blur-sm rounded-full p-1">
+            <Maximize2 className="h-3 w-3 text-gray-800" />
+          </div>
+        </div>
+        
+        <div className="p-6">
+          <h3 className="text-4xl font-bold text-gray-900 mb-1">
+            <CountUp end={count} />
+          </h3>
+          <p className="text-gray-800">Global Design <br/>Awards</p>
+        </div>
+      </motion.div>
+      
+      <AwardsModal 
+        isOpen={isAwardsModalOpen} 
+        onClose={() => setIsAwardsModalOpen(false)} 
+      />
+      <VisualizerModal 
+        isOpen={isVisualizerOpen} 
+        onClose={() => setIsVisualizerOpen(false)} 
+      />
+    </div>
   );
 }

@@ -1,21 +1,16 @@
 import { motion } from "framer-motion";
-import { Maximize } from "lucide-react";
+import { Maximize2 } from "lucide-react";
 import { useState } from "react";
+import { PORTFOLIO_DATA } from "@/lib/constants";
+import { SiApple } from "react-icons/si";
 
 interface ClientsModalProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-const clientsList = [
-  { name: "Apple", logo: "🍎" },
-  { name: "Microsoft", logo: "🪟" },
-  { name: "Amazon", logo: "📦" },
-  { name: "Google", logo: "🔍" },
-  { name: "Netflix", logo: "🎬" }
-];
-
 function ClientsModal({ isOpen, onClose }: ClientsModalProps) {
+  const { clients } = PORTFOLIO_DATA;
   if (!isOpen) return null;
   
   return (
@@ -33,10 +28,13 @@ function ClientsModal({ isOpen, onClose }: ClientsModalProps) {
         <h2 className="text-3xl font-bold text-white mb-6">Notable Clients</h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {clientsList.map((client) => (
+          {clients.map((client) => (
             <div key={client.name} className="flex items-center p-4 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors">
-              <span className="text-2xl mr-4">{client.logo}</span>
-              <span className="text-white text-lg">{client.name}</span>
+              <span className="text-2xl mr-4">{client.logo === "apple" ? "🍎" : client.logo === "google" ? "🔍" : client.logo === "microsoft" ? "🪟" : "📦"}</span>
+              <div>
+                <span className="text-white text-lg block">{client.name}</span>
+                <span className="text-white/60 text-sm">{client.description}</span>
+              </div>
             </div>
           ))}
         </div>
@@ -57,23 +55,21 @@ export function ClientsCard() {
         initial={{ y: 10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.4, delay: 0.3 }}
-        className="bg-gray-800 rounded-3xl p-6 text-white transition-all duration-300 hover:shadow-lg hover:-translate-y-1 cursor-pointer"
+        className="bg-gray-800 rounded-3xl overflow-hidden relative cursor-pointer group"
         onClick={openModal}
       >
-        <div className="flex flex-col h-full">
-          <div className="flex justify-end">
-            <div className="bg-white/10 backdrop-blur-md rounded-md p-1">
-              <Maximize className="h-5 w-5 text-white/60" />
-            </div>
+        <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
+          <div className="bg-white/20 backdrop-blur-sm rounded-full p-1">
+            <Maximize2 className="h-3 w-3 text-white" />
           </div>
-          <div className="my-auto text-center py-8">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 mx-auto text-white/90" viewBox="0 0 20 20" fill="currentColor">
-              <path d="M11 17a1 1 0 001.447.894l4-2A1 1 0 0017 15V9.236a1 1 0 00-1.447-.894l-4 2a1 1 0 00-.553.894V17zM15.211 6.276a1 1 0 000-1.788l-4.764-2.382a1 1 0 00-.894 0L4.789 4.488a1 1 0 000 1.788l4.764 2.382a1 1 0 00.894 0l4.764-2.382zM4.447 8.342A1 1 0 003 9.236V15a1 1 0 00.553.894l4 2A1 1 0 009 17v-5.764a1 1 0 00-.553-.894l-4-2z" />
-            </svg>
+        </div>
+        
+        <div className="h-full flex flex-col justify-center items-center p-6">
+          <div className="flex-grow flex items-center justify-center p-4">
+            <SiApple className="text-white h-10 w-10" />
           </div>
-          <div className="mt-auto text-center">
-            <p className="text-white/70">Clients</p>
-          </div>
+          
+          <p className="text-xs text-white/70 mt-auto">Clients</p>
         </div>
       </motion.div>
       
