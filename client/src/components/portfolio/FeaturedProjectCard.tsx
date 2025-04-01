@@ -24,8 +24,10 @@ function ProjectSlide({ project, onProjectClick }: ProjectSlideProps) {
 
   const openLiveUrl = (e: React.MouseEvent) => {
     e.stopPropagation();
-    if (project.liveUrl) {
-      window.open(project.liveUrl, '_blank');
+    // Prioritize deploymentUrl over liveUrl
+    const url = project.deploymentUrl || project.liveUrl;
+    if (url) {
+      window.open(url, '_blank');
     }
   };
   
@@ -69,7 +71,7 @@ function ProjectSlide({ project, onProjectClick }: ProjectSlideProps) {
             </div>
           )}
           
-          {project.liveUrl && (
+          {(project.deploymentUrl || project.liveUrl) && (
             <div 
               className="bg-white/30 backdrop-blur-sm rounded-full p-3 hover:bg-white/40 transition-colors"
               onClick={openLiveUrl}

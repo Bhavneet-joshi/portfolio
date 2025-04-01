@@ -55,9 +55,9 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
           </div>
           
           <div className="flex space-x-2">
-            {project.liveUrl && (
+            {(project.deploymentUrl || project.liveUrl) && (
               <a 
-                href={project.liveUrl}
+                href={project.deploymentUrl || project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-500 hover:text-primary"

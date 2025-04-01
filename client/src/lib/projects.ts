@@ -7,6 +7,7 @@ export interface Project {
   imageUrl: string;
   thumbnailUrl: string;
   liveUrl?: string;
+  deploymentUrl?: string;
   githubUrl?: string;
   year: number;
   client: string;
@@ -24,7 +25,8 @@ export const PROJECTS: Project[] = [
     imageUrl: "https://images.unsplash.com/photo-1584982751601-97dcc096659c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
     thumbnailUrl: "https://images.unsplash.com/photo-1584982751601-97dcc096659c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80",
     githubUrl: "https://github.com/Bhavneet-joshi/MedCare",
-    liveUrl: "https://medcare-bhavneet.replit.app",
+    liveUrl: "https://medcare.bhavneetjoshi.com",
+    deploymentUrl: "https://medcare.bhavneetjoshi.com",
     year: 2023,
     client: "Healthcare Initiative",
     category: "web",
@@ -39,7 +41,8 @@ export const PROJECTS: Project[] = [
     imageUrl: "https://images.unsplash.com/photo-1557800636-894a64c1696f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
     thumbnailUrl: "https://images.unsplash.com/photo-1557800636-894a64c1696f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80",
     githubUrl: "https://github.com/Bhavneet-joshi/PicturePass",
-    liveUrl: "https://picturepass-bhavneet.replit.app",
+    liveUrl: "https://picturepass.bhavneetjoshi.com",
+    deploymentUrl: "https://picturepass.bhavneetjoshi.com",
     year: 2023,
     client: "Photography Enthusiasts",
     category: "web",
@@ -54,7 +57,8 @@ export const PROJECTS: Project[] = [
     imageUrl: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
     thumbnailUrl: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80",
     githubUrl: "https://github.com/Bhavneet-joshi/Newspaper",
-    liveUrl: "https://newspaper-bhavneet.replit.app",
+    liveUrl: "https://newspaper.bhavneetjoshi.com",
+    deploymentUrl: "https://newspaper.bhavneetjoshi.com",
     year: 2022,
     client: "Media Distribution Services",
     category: "web",
@@ -68,7 +72,8 @@ export const PROJECTS: Project[] = [
     technologies: ["SQL", "Database Management", "Procedures", "Subqueries"],
     imageUrl: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
     thumbnailUrl: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80",
-    liveUrl: "https://sqlqueries-bhavneet.replit.app",
+    liveUrl: "https://sqlqueries.bhavneetjoshi.com",
+    deploymentUrl: "https://sqlqueries.bhavneetjoshi.com",
     year: 2024,
     client: "SMCK",
     category: "other",
@@ -82,7 +87,8 @@ export const PROJECTS: Project[] = [
     technologies: ["Python", "Matplotlib", "Plotly", "Data Analysis"],
     imageUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
     thumbnailUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80",
-    liveUrl: "https://financedata-bhavneet.replit.app",
+    liveUrl: "https://financedata.bhavneetjoshi.com",
+    deploymentUrl: "https://financedata.bhavneetjoshi.com",
     year: 2023,
     client: "Accenture",
     category: "design",

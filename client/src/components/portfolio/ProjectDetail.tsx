@@ -55,9 +55,9 @@ export function ProjectDetail({ id, onBack }: ProjectDetailProps) {
             </div>
             
             <div className="flex items-center gap-3">
-              {project.liveUrl && (
+              {(project.deploymentUrl || project.liveUrl) && (
                 <a 
-                  href={project.liveUrl} 
+                  href={project.deploymentUrl || project.liveUrl} 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-gray-700 hover:text-primary flex items-center gap-1"
