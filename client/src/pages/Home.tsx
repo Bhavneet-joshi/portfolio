@@ -83,9 +83,10 @@ export default function Home() {
                       onClick={() => handleNavigate("github")}
                     />
                     <StatsCard 
-                      count={stats.awards} 
-                      label="Awards" 
+                      count={15} 
+                      label="Contributions" 
                       color="primary" 
+                      onClick={() => handleNavigate("github")}
                     />
                   </div>
                 </div>
@@ -95,7 +96,7 @@ export default function Home() {
                   <ClientsCard />
                 </div>
                 <div className="md:col-span-7">
-                  <AwardsCard count={stats.globalAwards} />
+                  <AwardsCard count={15} />
                 </div>
               </div>
             </div>

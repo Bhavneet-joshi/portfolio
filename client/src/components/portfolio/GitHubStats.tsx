@@ -11,6 +11,7 @@ interface GitHubUserData {
   followers: number;
   following: number;
   created_at: string;
+  contributions?: number;
 }
 
 interface GitHubRepoData {
@@ -19,6 +20,12 @@ interface GitHubRepoData {
   stargazers_count: number;
   forks_count: number;
   homepage: string | null;
+}
+
+interface GitHubEventData {
+  type: string;
+  id: string;
+  [key: string]: any;
 }
 
 export function GitHubStats({ username }: GitHubStatsProps) {
@@ -47,7 +54,28 @@ export function GitHubStats({ username }: GitHubStatsProps) {
         }
         const reposData = await reposResponse.json();
 
-        setUserData(userData);
+        // Fetch contribution events (commits, pull requests, issues)
+        const eventsResponse = await fetch(`https://api.github.com/users/${username}/events?per_page=100`);
+        if (!eventsResponse.ok) {
+          throw new Error('Failed to fetch GitHub events');
+        }
+        const eventsData = await eventsResponse.json();
+        
+        // Count contributions - simplistic approach based on available public events
+        const contributionEvents = eventsData.filter((event: GitHubEventData) => 
+          event.type === 'PushEvent' || 
+          event.type === 'PullRequestEvent' || 
+          event.type === 'IssuesEvent' ||
+          event.type === 'IssueCommentEvent'
+        );
+        
+        // Create enhanced user data with contributions count
+        const enhancedUserData = {
+          ...userData,
+          contributions: contributionEvents.length
+        };
+
+        setUserData(enhancedUserData);
         setRepos(reposData);
         setLoading(false);
       } catch (err) {
@@ -133,6 +161,18 @@ export function GitHubStats({ username }: GitHubStatsProps) {
                   <span className="text-lg font-medium">{formatDate(userData.created_at)}</span>
                 </div>
               </div>
+              
+              {userData.contributions !== undefined && (
+                <div className="md:col-span-4 bg-primary/10 rounded-md p-4 mt-2">
+                  <div className="flex items-center justify-center gap-3">
+                    <Code className="h-6 w-6 text-primary" />
+                    <div>
+                      <span className="text-2xl font-bold">{userData.contributions}</span>
+                      <span className="text-sm text-gray-600 ml-2">Recent Contributions</span>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
           )}
 
