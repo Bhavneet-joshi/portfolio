@@ -2,13 +2,15 @@ import { motion } from "framer-motion";
 import { Maximize2, Play } from "lucide-react";
 import { useState } from "react";
 import { PORTFOLIO_DATA } from "@/lib/constants";
+import { getFeaturedProjects } from "@/lib/projects";
 
 interface VideoModalProps {
   isOpen: boolean;
   onClose: () => void;
+  videoUrl?: string;
 }
 
-function VideoModal({ isOpen, onClose }: VideoModalProps) {
+function VideoModal({ isOpen, onClose, videoUrl }: VideoModalProps) {
   if (!isOpen) return null;
   
   return (
@@ -23,21 +25,49 @@ function VideoModal({ isOpen, onClose }: VideoModalProps) {
           </svg>
         </button>
         <div className="aspect-video bg-black rounded-lg overflow-hidden">
-          <div className="w-full h-full flex items-center justify-center text-white/70">
-            <p className="text-center">Video content would play here.<br/>This is a demo placeholder.</p>
-          </div>
+          {videoUrl ? (
+            <iframe 
+              src={videoUrl} 
+              className="w-full h-full" 
+              frameBorder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowFullScreen
+            />
+          ) : (
+            <div className="w-full h-full flex items-center justify-center text-white/70">
+              <p className="text-center">Video content would play here.<br/>This is a demo placeholder.</p>
+            </div>
+          )}
         </div>
       </div>
     </div>
   );
 }
 
-export function FeaturedProjectCard() {
+interface FeaturedProjectCardProps {
+  onProjectClick?: (id: string) => void;
+}
+
+export function FeaturedProjectCard({ onProjectClick }: FeaturedProjectCardProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const { featuredProject } = PORTFOLIO_DATA;
+  const featuredProjects = getFeaturedProjects(1);
+  const project = featuredProjects[0] || {
+    id: "1",
+    title: "Flamingo Tropical Experience",
+    description: "Beautiful tropical scene featuring a flamingo among exotic plants",
+    imageUrl: "https://images.unsplash.com/photo-1557800636-894a64c1696f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+  };
   
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
+  
+  const handleCardClick = () => {
+    if (onProjectClick) {
+      onProjectClick(project.id);
+    } else {
+      openModal();
+    }
+  };
   
   return (
     <>
@@ -46,15 +76,15 @@ export function FeaturedProjectCard() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.4, delay: 0.1 }}
         className="bg-[#FDD5A6] rounded-3xl overflow-hidden relative cursor-pointer group"
-        onClick={openModal}
+        onClick={handleCardClick}
       >
-        {/* Flamingo image */}
+        {/* Featured project image */}
         <div className="h-[180px] relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#FDD5A6]/30 z-10"></div>
           <div 
             className="w-full h-full bg-cover bg-center"
             style={{ 
-              backgroundImage: `url("https://images.unsplash.com/photo-1557800636-894a64c1696f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80")` 
+              backgroundImage: `url("${project.imageUrl}")` 
             }}
           >
           </div>
@@ -64,8 +94,8 @@ export function FeaturedProjectCard() {
         </div>
         
         <div className="p-4 pb-10 relative">
-          <h3 className="text-xl font-bold text-gray-900">{featuredProject.title}</h3>
-          <p className="text-sm text-gray-700 mt-1">{featuredProject.description}</p>
+          <h3 className="text-xl font-bold text-gray-900">{project.title}</h3>
+          <p className="text-sm text-gray-700 mt-1">{project.description}</p>
           
           <div className="absolute -right-2 -bottom-2 w-16 h-16 rounded-full flex items-center justify-center bg-[#FDD5A6] group-hover:scale-110 transition-transform">
             <div className="w-8 h-8 rounded-full bg-gray-900 flex items-center justify-center">
@@ -75,7 +105,11 @@ export function FeaturedProjectCard() {
         </div>
       </motion.div>
       
-      <VideoModal isOpen={isModalOpen} onClose={closeModal} />
+      <VideoModal 
+        isOpen={isModalOpen} 
+        onClose={closeModal} 
+        videoUrl={project.liveUrl} 
+      />
     </>
   );
 }

@@ -6,9 +6,10 @@ interface StatsCardProps {
   count: number;
   label: string;
   color?: "primary" | "secondary";
+  onClick?: () => void;
 }
 
-export function StatsCard({ count, label, color = "secondary" }: StatsCardProps) {
+export function StatsCard({ count, label, color = "secondary", onClick }: StatsCardProps) {
   const bgColor = color === "primary" 
     ? "bg-[#BD9ADB] text-white" 
     : "bg-[#B8E0D2] text-gray-800";
@@ -18,7 +19,8 @@ export function StatsCard({ count, label, color = "secondary" }: StatsCardProps)
       initial={{ y: 10, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.4, delay: 0.2 }}
-      className={`${bgColor} rounded-3xl relative transition-all duration-300 hover:shadow-lg group`}
+      className={`${bgColor} rounded-3xl relative transition-all duration-300 hover:shadow-lg group ${onClick ? 'cursor-pointer' : ''}`}
+      onClick={onClick}
     >
       <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
         <div className="bg-white/20 backdrop-blur-sm rounded-full p-1">
