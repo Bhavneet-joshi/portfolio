@@ -6,6 +6,7 @@ import { FeaturedProjectCard } from "@/components/portfolio/FeaturedProjectCard"
 import { StatsCard } from "@/components/portfolio/StatsCard";
 import { ClientsCard } from "@/components/portfolio/ClientsCard";
 import { AwardsCard } from "@/components/portfolio/AwardsCard";
+import { CertificatesCard } from "@/components/portfolio/CertificatesCard";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 // Mobile page components
@@ -13,6 +14,7 @@ import { AboutPage } from "@/components/portfolio/AboutPage";
 import { PortfolioPage } from "@/components/portfolio/PortfolioPage";
 import { StatsPage } from "@/components/portfolio/StatsPage";
 import { GitHubPage } from "@/components/portfolio/GitHubPage";
+import { CertificatesPage } from "@/components/portfolio/CertificatesPage";
 
 export default function Home() {
   const { name, email, status, stats } = PORTFOLIO_DATA;
@@ -36,6 +38,11 @@ export default function Home() {
         {currentPage === "clients" && (
           <div className="bg-white min-h-[calc(100vh-65px)] p-6">
             <ClientsCard />
+          </div>
+        )}
+        {currentPage === "certificates" && (
+          <div className="bg-white min-h-[calc(100vh-65px)] p-6">
+            <CertificatesPage onBack={() => handleNavigate("portfolio")} />
           </div>
         )}
         
@@ -96,7 +103,10 @@ export default function Home() {
                   <ClientsCard />
                 </div>
                 <div className="md:col-span-7">
-                  <AwardsCard count={15} />
+                  <CertificatesCard 
+                    count={12} 
+                    onClick={() => handleNavigate("certificates")}
+                  />
                 </div>
               </div>
             </div>

@@ -75,6 +75,12 @@ export function Sidebar({ className, onNavigate, currentPage = "portfolio", isMo
               >
                 Clients
               </button>
+              <button 
+                onClick={() => handleNavClick("certificates")}
+                className={`text-left py-2 ${currentPage === "certificates" ? "text-primary font-medium" : "text-gray-600"}`}
+              >
+                Certificates
+              </button>
             </div>
           </div>
         )}
@@ -116,10 +122,17 @@ export function Sidebar({ className, onNavigate, currentPage = "portfolio", isMo
         </a>
         <a 
           href="#clients" 
-          className="nav-item rotate-180 text-gray-500 hover:text-primary transition-all font-medium tracking-wide"
+          className="nav-item rotate-180 text-gray-500 hover:text-primary transition-all font-medium tracking-wide mb-8"
           style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
         >
           Clients
+        </a>
+        <a 
+          href="#certificates" 
+          className="nav-item rotate-180 text-gray-500 hover:text-primary transition-all font-medium tracking-wide"
+          style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
+        >
+          Certificates
         </a>
       </div>
     </div>
