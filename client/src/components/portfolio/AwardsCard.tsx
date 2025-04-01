@@ -89,49 +89,51 @@ export function AwardsCard({ count }: AwardsCardProps) {
   const [isVisualizerOpen, setIsVisualizerOpen] = useState(false);
   
   return (
-    <div className="md:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
-      <motion.div 
-        initial={{ y: 10, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.4, delay: 0.4 }}
-        className="bg-[#F783AC] rounded-3xl overflow-hidden relative cursor-pointer group"
-        onClick={() => setIsVisualizerOpen(true)}
-      >
-        <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
-          <div className="bg-white/20 backdrop-blur-sm rounded-full p-1">
-            <Maximize2 className="h-3 w-3 text-white" />
-          </div>
-        </div>
-        
-        <div className="h-full flex items-center justify-center p-6">
-          <div className="rounded-full bg-gradient-to-br from-[#F783AC] to-[#F9A8D4] w-32 h-32 flex items-center justify-center">
-            <div className="rounded-full bg-gradient-to-tl from-[#D946EF] to-[#EC4899] w-24 h-24 flex items-center justify-center">
-              <div className="rounded-full bg-white w-4 h-4"></div>
+    <>
+      <div className="flex gap-5 h-full">
+        <motion.div 
+          initial={{ y: 10, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.4, delay: 0.4 }}
+          className="bg-black rounded-[20px] overflow-hidden relative cursor-pointer group flex-1"
+          onClick={() => setIsVisualizerOpen(true)}
+        >
+          <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
+            <div className="bg-white/20 backdrop-blur-sm rounded-full p-1">
+              <Maximize2 className="h-3 w-3 text-white" />
             </div>
           </div>
-        </div>
-      </motion.div>
-      
-      <motion.div 
-        initial={{ y: 10, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.4, delay: 0.5 }}
-        className="bg-[#FFAA5A] rounded-3xl overflow-hidden relative cursor-pointer group"
-        onClick={() => setIsAwardsModalOpen(true)}
-      >
-        <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
-          <div className="bg-white/20 backdrop-blur-sm rounded-full p-1">
-            <Maximize2 className="h-3 w-3 text-gray-800" />
+          
+          <div className="h-full flex items-center justify-center p-5">
+            <div className="rounded-full bg-gradient-to-br from-blue-300 to-pink-300 w-24 h-24 flex items-center justify-center">
+              <div className="rounded-full bg-gradient-to-tl from-blue-400 to-pink-400 w-16 h-16 flex items-center justify-center">
+                <div className="rounded-full bg-white w-4 h-4"></div>
+              </div>
+            </div>
           </div>
-        </div>
+        </motion.div>
         
-        <div className="p-6">
-          <h3 className="text-4xl font-bold text-gray-900 mb-1">
-            <CountUp end={count} />
-          </h3>
-          <p className="text-gray-800">Global Design <br/>Awards</p>
-        </div>
-      </motion.div>
+        <motion.div 
+          initial={{ y: 10, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.4, delay: 0.5 }}
+          className="bg-[#FFAA5A] rounded-[20px] overflow-hidden relative cursor-pointer group flex-1"
+          onClick={() => setIsAwardsModalOpen(true)}
+        >
+          <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
+            <div className="bg-white/20 backdrop-blur-sm rounded-full p-1">
+              <Maximize2 className="h-3 w-3 text-gray-800" />
+            </div>
+          </div>
+          
+          <div className="p-6">
+            <h3 className="text-4xl font-extrabold text-gray-900 mb-1">
+              <CountUp end={count} />
+            </h3>
+            <p className="text-gray-800 font-medium">Global Design <br/>Awards</p>
+          </div>
+        </motion.div>
+      </div>
       
       <AwardsModal 
         isOpen={isAwardsModalOpen} 
@@ -141,6 +143,6 @@ export function AwardsCard({ count }: AwardsCardProps) {
         isOpen={isVisualizerOpen} 
         onClose={() => setIsVisualizerOpen(false)} 
       />
-    </div>
+    </>
   );
 }

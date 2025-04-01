@@ -50,10 +50,11 @@ interface FeaturedProjectCardProps {
 
 export function FeaturedProjectCard({ onProjectClick }: FeaturedProjectCardProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const featuredProjects = getFeaturedProjects(1);
-  const project = featuredProjects[0] || {
+  
+  // Use the flamingo image to match the design in the attached PNG
+  const project = {
     id: "1",
-    title: "Flamingo Tropical Experience",
+    title: "Flamingo Scene",
     description: "Beautiful tropical scene featuring a flamingo among exotic plants",
     imageUrl: "https://images.unsplash.com/photo-1557800636-894a64c1696f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
   };
@@ -75,31 +76,26 @@ export function FeaturedProjectCard({ onProjectClick }: FeaturedProjectCardProps
         initial={{ y: 10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.4, delay: 0.1 }}
-        className="bg-[#FDD5A6] rounded-3xl overflow-hidden relative cursor-pointer group"
+        className="rounded-[20px] overflow-hidden relative cursor-pointer group"
         onClick={handleCardClick}
       >
         {/* Featured project image */}
-        <div className="h-[180px] relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#FDD5A6]/30 z-10"></div>
-          <div 
-            className="w-full h-full bg-cover bg-center"
-            style={{ 
-              backgroundImage: `url("${project.imageUrl}")` 
-            }}
-          >
-          </div>
-          <div className="absolute top-4 right-4 bg-white/30 backdrop-blur-sm rounded-full p-1 opacity-0 group-hover:opacity-100 transition-opacity">
-            <Maximize2 className="h-4 w-4 text-white" />
-          </div>
-        </div>
-        
-        <div className="p-4 pb-10 relative">
-          <h3 className="text-xl font-bold text-gray-900">{project.title}</h3>
-          <p className="text-sm text-gray-700 mt-1">{project.description}</p>
+        <div className="relative overflow-hidden aspect-video">
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/30 z-10"></div>
+          <img 
+            src={project.imageUrl} 
+            alt={project.title}
+            className="w-full h-full object-cover"
+          />
           
-          <div className="absolute -right-2 -bottom-2 w-16 h-16 rounded-full flex items-center justify-center bg-[#FDD5A6] group-hover:scale-110 transition-transform">
-            <div className="w-8 h-8 rounded-full bg-gray-900 flex items-center justify-center">
-              <Play className="h-4 w-4 text-white ml-0.5" />
+          <div className="absolute top-3 right-3 bg-white/30 backdrop-blur-sm rounded-full p-1 opacity-0 group-hover:opacity-100 transition-opacity z-20">
+            <Maximize2 className="h-3 w-3 text-white" />
+          </div>
+          
+          {/* Play button */}
+          <div className="absolute inset-0 flex items-center justify-center z-20">
+            <div className="bg-white/30 backdrop-blur-sm rounded-full p-3 hover:bg-white/40 transition-colors">
+              <Play className="h-8 w-8 text-white" fill="white" />
             </div>
           </div>
         </div>
@@ -108,7 +104,7 @@ export function FeaturedProjectCard({ onProjectClick }: FeaturedProjectCardProps
       <VideoModal 
         isOpen={isModalOpen} 
         onClose={closeModal} 
-        videoUrl={project.liveUrl} 
+        videoUrl="https://www.youtube.com/embed/dQw4w9WgXcQ"
       />
     </>
   );

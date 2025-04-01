@@ -55,21 +55,21 @@ export function ClientsCard() {
         initial={{ y: 10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.4, delay: 0.3 }}
-        className="bg-gray-800 rounded-3xl overflow-hidden relative cursor-pointer group"
+        className="bg-gray-800 rounded-[20px] overflow-hidden relative cursor-pointer group h-full"
         onClick={openModal}
       >
-        <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
+        <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
           <div className="bg-white/20 backdrop-blur-sm rounded-full p-1">
             <Maximize2 className="h-3 w-3 text-white" />
           </div>
         </div>
         
         <div className="h-full flex flex-col justify-center items-center p-6">
-          <div className="flex-grow flex items-center justify-center p-4">
-            <SiApple className="text-white h-10 w-10" />
+          <div className="flex-grow flex items-center justify-center">
+            <SiApple className="text-white h-14 w-14" />
           </div>
           
-          <p className="text-xs text-white/70 mt-auto">Clients</p>
+          <p className="text-sm font-medium text-white/90 mt-auto">Clients</p>
         </div>
       </motion.div>
       

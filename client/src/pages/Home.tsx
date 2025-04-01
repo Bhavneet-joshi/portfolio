@@ -46,28 +46,34 @@ export default function Home() {
   
   // Desktop view
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center py-8 md:py-0">
-      <div className="container mx-auto px-4 md:px-8 lg:max-w-6xl">
-        <div className="bg-white rounded-3xl shadow-xl overflow-hidden">
+    <div className="min-h-screen bg-gray-100 flex items-center justify-center py-6 px-4">
+      <div className="w-full max-w-6xl mx-auto">
+        <div className="bg-white rounded-[32px] shadow-xl overflow-hidden">
           <div className="flex flex-col md:flex-row">
-            <Sidebar />
+            <Sidebar className="hidden md:block" />
             
-            <div className="flex-grow p-5 md:p-8 lg:p-10">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-                <ProfileCard 
-                  name={name} 
-                  email={email} 
-                  status={status} 
-                />
+            <div className="flex-grow p-5 md:p-8">
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-5">
+                {/* Profile Card - Takes 5 columns on desktop */}
+                <div className="md:col-span-5">
+                  <ProfileCard 
+                    name={name} 
+                    email={email} 
+                    status={status} 
+                  />
+                </div>
                 
-                <div className="space-y-4 md:space-y-6">
-                  <div className="flex items-end justify-between">
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter">Portfolio</h2>
+                {/* Right side content - Takes 7 columns on desktop */}
+                <div className="md:col-span-7 flex flex-col gap-5">
+                  <div className="mb-1">
+                    <h2 className="text-5xl md:text-6xl font-black tracking-tighter">Portfolio</h2>
                   </div>
                   
+                  {/* Featured Project - Full width */}
                   <FeaturedProjectCard />
                   
-                  <div className="grid grid-cols-2 gap-4 md:gap-6">
+                  {/* Stats row - Two cards side by side */}
+                  <div className="grid grid-cols-2 gap-5">
                     <StatsCard 
                       count={stats.projects} 
                       label="GitHub Projects" 
@@ -81,8 +87,11 @@ export default function Home() {
                   </div>
                 </div>
                 
-                <div className="md:col-span-2 grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+                {/* Bottom row - Clients and Awards */}
+                <div className="md:col-span-5">
                   <ClientsCard />
+                </div>
+                <div className="md:col-span-7">
                   <AwardsCard count={stats.globalAwards} />
                 </div>
               </div>
