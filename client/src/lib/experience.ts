@@ -14,50 +14,47 @@ export interface Experience {
 export const EXPERIENCES: Experience[] = [
   {
     id: "exp1",
-    position: "Senior Full Stack Developer",
-    company: "TechCorp Solutions",
-    location: "New York, NY",
-    startDate: "Jan 2021",
+    position: "Junior Engineer",
+    company: "SMCK",
+    location: "Remote",
+    startDate: "Oct 2024",
     endDate: "Present",
-    description: "Leading the development of enterprise web applications using React, Node.js, and PostgreSQL. Responsible for architecture design and team management.",
+    description: "Working as a Junior Engineer focusing on database management and networking.",
     achievements: [
-      "Led the development of a customer portal that increased user engagement by 45%",
-      "Implemented CI/CD pipeline that reduced deployment time by 60%",
-      "Mentored 5 junior developers across different projects"
+      "Acquired extensive experience in creating complex SQL queries, including procedures and subqueries, to optimize data retrieval, manipulation, and analysis.",
+      "Developed foundational networking skills to ensure seamless connectivity and communication across system components."
     ],
-    skills: ["React", "Node.js", "TypeScript", "AWS", "Docker", "PostgreSQL"],
+    skills: ["SQL", "Database Management", "Networking", "Data Analysis"],
     logo: "/assets/p1.png"
   },
   {
     id: "exp2",
-    position: "Frontend Developer",
-    company: "Digital Innovations Inc",
-    location: "Boston, MA",
-    startDate: "Mar 2018",
-    endDate: "Dec 2020",
-    description: "Developed responsive and interactive web applications using React and related technologies. Focused on creating intuitive user interfaces and optimizing performance.",
+    position: "Trainee Engineer",
+    company: "Global Engineers",
+    location: "Remote",
+    startDate: "Jan 2024",
+    endDate: "Oct 2024",
+    description: "Worked as a Trainee Engineer with a focus on database management and ASRS systems.",
     achievements: [
-      "Rebuilt the company's flagship product using React, improving performance by 35%",
-      "Developed a component library that was used across 3 different products",
-      "Worked closely with UX/UI designers to implement modern design patterns"
+      "Gained hands-on experience in writing complex SQL queries for data retrieval, manipulation, and analysis.",
+      "Assisted in the maintenance and administration of relational software that mainly focus on ASRS system."
     ],
-    skills: ["React", "JavaScript", "HTML/CSS", "Redux", "Webpack", "Jest"],
+    skills: ["SQL", "Database Management", "ASRS Systems", "Software Maintenance"],
     logo: "/assets/p2.png"
   },
   {
     id: "exp3",
-    position: "Web Developer",
-    company: "CreativeTech Studios",
-    location: "San Francisco, CA",
-    startDate: "Jun 2016",
-    endDate: "Feb 2018",
-    description: "Worked in a fast-paced agency environment developing websites and web applications for various clients across different industries.",
+    position: "Virtual Intern",
+    company: "Accenture",
+    location: "Remote",
+    startDate: "Aug 2023",
+    endDate: "Sep 2023",
+    description: "Completed a virtual internship at Accenture focusing on software development and data visualization.",
     achievements: [
-      "Developed 15+ client websites with a focus on responsive design and SEO",
-      "Implemented an internal CMS that improved content management efficiency by 40%",
-      "Received client satisfaction score of 4.8/5 across all projects"
+      "Exploration of diverse roles in the tech sector and understanding the Software Development Lifecycle (SDLC).",
+      "Visualization of financial data using Matplotlib and Plotly."
     ],
-    skills: ["JavaScript", "PHP", "WordPress", "jQuery", "CSS/SASS", "MySQL"],
+    skills: ["Python", "Matplotlib", "Plotly", "SDLC", "Data Visualization"],
     logo: "/assets/p3.png"
   }
 ];

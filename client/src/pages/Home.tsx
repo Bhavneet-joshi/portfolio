@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { PORTFOLIO_DATA } from "@/lib/constants";
+import { EXPERIENCES } from "@/lib/experience";
 import { Sidebar } from "@/components/portfolio/Sidebar";
 import { ProfileCard } from "@/components/portfolio/ProfileCard";
 import { FeaturedProjectCard } from "@/components/portfolio/FeaturedProjectCard";
@@ -133,9 +134,14 @@ export default function Home() {
                   </div>
                 </div>
                 
-                {/* Bottom row - Clients and Certificates */}
+                {/* Bottom row - Experience and Certificates */}
                 <div className="md:col-span-5">
-                  <ClientsCard />
+                  <StatsCard 
+                    count={3} 
+                    label="Years Experience" 
+                    color="secondary"
+                    onClick={() => handleNavigate("experience")}
+                  />
                 </div>
                 <div className="md:col-span-7">
                   <CertificatesCard 
