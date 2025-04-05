@@ -2,7 +2,7 @@ import { Moon, Sun } from "lucide-react";
 import { useTheme } from "@/lib/theme-context";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface ThemeToggleProps {
   className?: string;
@@ -13,9 +13,43 @@ export function ThemeToggle({ className, variant = "icon" }: ThemeToggleProps) {
   const { theme, toggleTheme } = useTheme();
   
   const iconVariants = {
-    initial: { scale: 0.6, rotate: 0, opacity: 0 },
-    animate: { scale: 1, rotate: 0, opacity: 1 },
-    exit: { scale: 0.6, rotate: 45, opacity: 0 },
+    initial: { scale: 0.6, rotate: 0, opacity: 0, y: 10 },
+    animate: { scale: 1, rotate: 0, opacity: 1, y: 0 },
+    exit: { scale: 0.6, rotate: 180, opacity: 0, y: -10 },
+  };
+
+  // Background circle animation
+  const circleVariants = {
+    dark: { 
+      backgroundColor: "rgba(30, 41, 59, 0.8)", // slate-800 with transparency
+      scale: 1
+    },
+    light: { 
+      backgroundColor: "rgba(241, 245, 249, 0.8)", // slate-100 with transparency
+      scale: 1
+    }
+  };
+
+  // Container animation for the entire toggle
+  const containerVariants = {
+    hover: { 
+      scale: 1.1,
+      rotate: 15,
+      transition: { 
+        type: "spring", 
+        stiffness: 400, 
+        damping: 10 
+      } 
+    },
+    tap: { 
+      scale: 0.9,
+      rotate: -15,
+      transition: { 
+        type: "spring", 
+        stiffness: 400, 
+        damping: 10 
+      } 
+    }
   };
 
   if (variant === "button") {
@@ -30,78 +64,98 @@ export function ThemeToggle({ className, variant = "icon" }: ThemeToggleProps) {
           className
         )}
       >
-        {theme === "dark" ? (
-          <>
+        <AnimatePresence mode="wait">
+          {theme === "dark" ? (
             <motion.span
               key="dark-icon"
               initial="initial"
               animate="animate"
               exit="exit"
               variants={iconVariants}
-              transition={{ duration: 0.3 }}
+              transition={{ duration: 0.4, type: "spring", stiffness: 300 }}
             >
               <Moon className="h-4 w-4" />
             </motion.span>
-            <span>Dark</span>
-          </>
-        ) : (
-          <>
+          ) : (
             <motion.span
               key="light-icon"
               initial="initial"
               animate="animate"
               exit="exit"
               variants={iconVariants}
-              transition={{ duration: 0.3 }}
+              transition={{ duration: 0.4, type: "spring", stiffness: 300 }}
             >
               <Sun className="h-4 w-4" />
             </motion.span>
-            <span>Light</span>
-          </>
-        )}
+          )}
+        </AnimatePresence>
+        <span>{theme === "dark" ? "Dark" : "Light"}</span>
       </Button>
     );
   }
   
   return (
     <motion.div 
-      whileHover={{ rotate: 45 }}
-      transition={{ type: "spring", stiffness: 300, damping: 20 }}
+      className="relative"
+      variants={containerVariants}
+      whileHover="hover"
+      whileTap="tap"
     >
+      <motion.div
+        className="absolute inset-0 rounded-full z-0"
+        animate={theme === "dark" ? "dark" : "light"}
+        variants={circleVariants}
+        transition={{ duration: 0.5 }}
+      />
+
       <Button
         variant="ghost"
         size="icon"
         onClick={toggleTheme}
         className={cn(
-          "rounded-full",
-          theme === "dark" ? "hover:bg-slate-800" : "hover:bg-slate-200",
+          "rounded-full relative z-10 backdrop-blur-sm",
+          theme === "dark" ? "text-yellow-200" : "text-amber-500",
           className
         )}
       >
         <span className="sr-only">Toggle theme</span>
-        {theme === "dark" ? (
-          <motion.span
-            key="dark-icon"
-            initial="initial"
-            animate="animate"
-            exit="exit"
-            variants={iconVariants}
-            transition={{ duration: 0.3 }}
-          >
-            <Moon className="h-5 w-5" />
-          </motion.span>
-        ) : (
-          <motion.span
-            key="light-icon"
-            initial="initial"
-            animate="animate"
-            exit="exit"
-            variants={iconVariants}
-            transition={{ duration: 0.3 }}
-          >
-            <Sun className="h-5 w-5" />
-          </motion.span>
-        )}
+        <AnimatePresence mode="wait">
+          {theme === "dark" ? (
+            <motion.div
+              key="dark-icon"
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              variants={iconVariants}
+              transition={{ 
+                duration: 0.6, 
+                type: "spring", 
+                stiffness: 300, 
+                damping: 15 
+              }}
+              className="w-5 h-5 flex items-center justify-center"
+            >
+              <Moon className="h-5 w-5" />
+            </motion.div>
+          ) : (
+            <motion.div
+              key="light-icon"
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              variants={iconVariants}
+              transition={{ 
+                duration: 0.6, 
+                type: "spring", 
+                stiffness: 300, 
+                damping: 15 
+              }}
+              className="w-5 h-5 flex items-center justify-center"
+            >
+              <Sun className="h-5 w-5" />
+            </motion.div>
+          )}
+        </AnimatePresence>
       </Button>
     </motion.div>
   );
