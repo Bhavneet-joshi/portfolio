@@ -24,8 +24,8 @@ export function AboutPage() {
     },
     {
       title: "Picture Pass",
-      url: "https://pass-app.vercel.app",
-      githubUrl: "https://github.com/yourusername/pass-app",
+      url: "https://picture-pass.vercel.app/",
+      githubUrl: "https://github.com/yourusername/picture-pass",
       description: "Developed a dynamic image display application using React.js, Tailwind CSS, and Material UI. Integrated external APIs for real-time images. Created a responsive and visually appealing UI."
     },
     {
