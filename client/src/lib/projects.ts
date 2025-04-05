@@ -42,7 +42,7 @@ export const PROJECTS: Project[] = [
     imageUrl: "https://images.unsplash.com/photo-1526406915894-7bcd65f60845?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
     thumbnailUrl: "https://images.unsplash.com/photo-1526406915894-7bcd65f60845?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80",
     githubUrl: "https://github.com/Bhavneet-joshi/Picture_Pass",
-    liveUrl: "https://pass-app.vercel.app",
+    liveUrl: "https://picture-pass.vercel.app/",
     year: 2023,
     client: "Personal Project",
     category: "web",
