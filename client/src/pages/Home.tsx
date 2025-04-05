@@ -19,7 +19,7 @@ import { ProjectsPage } from "@/components/portfolio/ProjectsPage";
 export default function Home() {
   const { name, email, status } = PORTFOLIO_DATA;
   const isMobile = useIsMobile();
-  const [currentPage, setCurrentPage] = useState("portfolio");
+  const [currentPage, setCurrentPage] = useState("about");
   
   const handleNavigate = (page: string) => {
     setCurrentPage(page);
