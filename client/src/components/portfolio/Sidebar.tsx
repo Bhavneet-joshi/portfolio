@@ -7,7 +7,8 @@ import {
   Github, 
   Code2, 
   Award,
-  Folder
+  Folder,
+  ArrowLeft
 } from "lucide-react";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { motion } from "framer-motion";
@@ -66,7 +67,19 @@ export function Sidebar({ className, onNavigate, currentPage = "about", isMobile
   if (isMobile) {
     return (
       <div className={cn("w-full bg-background flex justify-between items-center p-4 border-b border-border fixed top-0 left-0 right-0 z-50", className)}>
-        <div className="text-xl font-bold text-foreground">Portfolio</div>
+        <div className="flex items-center">
+          {currentPage !== "about" && (
+            <button 
+              onClick={() => onNavigate?.("about")}
+              className="flex items-center text-foreground/70 hover:text-primary mr-4 transition-colors"
+              aria-label="Back to home"
+            >
+              <ArrowLeft className="h-4 w-4 mr-1" />
+              <span className="text-sm">Home</span>
+            </button>
+          )}
+          <div className="text-xl font-bold text-foreground">Portfolio</div>
+        </div>
         
         <div className="flex items-center space-x-2">
           <motion.div

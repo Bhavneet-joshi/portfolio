@@ -128,7 +128,7 @@ export function ThemeToggle({ className, variant = "icon" }: ThemeToggleProps) {
               exit="exit"
               variants={iconVariants}
               transition={{ 
-                duration: 0.6, 
+                duration: 0.3, 
                 type: "spring", 
                 stiffness: 300, 
                 damping: 15 
@@ -145,7 +145,7 @@ export function ThemeToggle({ className, variant = "icon" }: ThemeToggleProps) {
               exit="exit"
               variants={iconVariants}
               transition={{ 
-                duration: 0.6, 
+                duration: 0.3, 
                 type: "spring", 
                 stiffness: 300, 
                 damping: 15 
