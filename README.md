@@ -2,7 +2,7 @@
 
 A modern, responsive portfolio website showcasing my skills, projects, and professional experience as a designer and developer.
 
-![Portfolio Screenshot](client/public/assets/p1.png)
+![Portfolio Screenshot](portfoliodesign.jpg)
 
 > Design inspiration taken from Dribbble
 
