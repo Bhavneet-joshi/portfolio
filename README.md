@@ -1,8 +1,10 @@
 # Design Portfolio
 
-A modern, responsive portfolio website showcasing my skills, projects, and professional experience as a designer and developer. The design inspiration for this portfolio was taken from Dribbble.
+A modern, responsive portfolio website showcasing my skills, projects, and professional experience as a designer and developer.
 
 ![Portfolio Screenshot](client/public/assets/p1.png)
+
+> Design inspiration taken from Dribbble
 
 ## Features
 
