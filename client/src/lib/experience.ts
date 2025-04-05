@@ -25,7 +25,7 @@ export const EXPERIENCES: Experience[] = [
       "Developed foundational networking skills to ensure seamless connectivity and communication across system components."
     ],
     skills: ["SQL", "Database Management", "Networking", "Data Analysis"],
-    logo: "/assets/p1.png"
+    logo: "/assets/smc.jpg"
   },
   {
     id: "exp2",
@@ -40,7 +40,7 @@ export const EXPERIENCES: Experience[] = [
       "Assisted in the maintenance and administration of relational software that mainly focus on ASRS system."
     ],
     skills: ["SQL", "Database Management", "ASRS Systems", "Software Maintenance"],
-    logo: "/assets/p2.png"
+    logo: "/assets/"
   },
   {
     id: "exp3",
@@ -55,7 +55,7 @@ export const EXPERIENCES: Experience[] = [
       "Visualization of financial data using Matplotlib and Plotly."
     ],
     skills: ["Python", "Matplotlib", "Plotly", "SDLC", "Data Visualization"],
-    logo: "/assets/p3.png"
+    logo: "/assets/acc.png"
   }
 ];
 
