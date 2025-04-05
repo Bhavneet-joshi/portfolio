@@ -7,215 +7,174 @@ export interface Project {
   imageUrl: string;
   thumbnailUrl: string;
   githubUrl?: string;
-  liveUrl: string;
+  liveUrl?: string;
   deploymentUrl?: string;
   year: number;
   client: string;
-  category: "web" | "mobile" | "design";
+  category: "web" | "mobile" | "design" | "other";
   featured?: boolean;
   tags: string[];
 }
 
-export const projects: Project[] = [
+export const PROJECTS: Project[] = [
   {
-    id: "construction-website",
+    id: "construction_website",
     title: "Construction Website",
-    description: "A modern construction company website showcasing services and projects.",
-    fullDescription: "A responsive website built for a construction company to showcase their services, projects, and contact information. Features a modern design with smooth animations and a user-friendly interface.",
-    technologies: ["React", "TypeScript", "Tailwind CSS", "Framer Motion"],
-    imageUrl: "/images/projects/construction-website.png",
-    thumbnailUrl: "/images/projects/construction-website-thumb.png",
-    githubUrl: "https://github.com/yourusername/construction-website",
-    liveUrl: "https://construction-website.vercel.app",
-    year: 2024,
-    client: "ABC Construction",
+    description: "Responsive website for a construction company.",
+    fullDescription: "Developed a responsive website for a construction company using React.js, TypeScript, and Bootstrap. Features include project showcases, service offerings, and company information in a modern design.",
+    technologies: ["TypeScript", "React.js", "Bootstrap", "Responsive Design"],
+    imageUrl: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+    thumbnailUrl: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80",
+    githubUrl: "https://github.com/Bhavneet-joshi/construction_website",
+    liveUrl: "https://cons-ruddy.vercel.app",
+    year: 2023,
+    client: "BuildRight Construction",
     category: "web",
     featured: true,
-    tags: ["React", "TypeScript", "Tailwind CSS", "Framer Motion", "Web Development"]
+    tags: ["TypeScript", "React.js", "Bootstrap", "Responsive Design"]
   },
   {
-    id: "pass-app",
-    title: "Pass",
-    description: "A secure password management application with advanced features.",
-    fullDescription: "A password manager application that helps users securely store and manage their passwords. Features include encryption, password generation, and cross-device synchronization.",
-    technologies: ["React", "TypeScript", "Node.js", "MongoDB", "Express"],
-    imageUrl: "/images/projects/pass-app.png",
-    thumbnailUrl: "/images/projects/pass-app-thumb.png",
-    githubUrl: "https://github.com/yourusername/pass-app",
+    id: "picture_pass",
+    title: "Picture Pass",
+    description: "Dynamic image display application with API integration.",
+    fullDescription: "Developed a dynamic image display application using React.js, Tailwind CSS, and Material UI. Integrated external APIs for real-time images. Created a responsive and visually appealing UI.",
+    technologies: ["JavaScript", "React.js", "Tailwind CSS", "Material UI", "API Integration"],
+    imageUrl: "https://images.unsplash.com/photo-1526406915894-7bcd65f60845?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+    thumbnailUrl: "https://images.unsplash.com/photo-1526406915894-7bcd65f60845?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80",
+    githubUrl: "https://github.com/Bhavneet-joshi/Picture_Pass",
     liveUrl: "https://pass-app.vercel.app",
-    deploymentUrl: "https://pass-app.vercel.app",
-    year: 2024,
+    year: 2023,
     client: "Personal Project",
     category: "web",
-    featured: false,
-    tags: ["React", "TypeScript", "Node.js", "MongoDB", "Express", "Web Development"]
+    featured: true,
+    tags: ["JavaScript", "React.js", "Tailwind CSS", "Material UI", "API Integration"]
+  },
+  {
+    id: "commapp",
+    title: "CommApp",
+    description: "Real-time communication platform with authentication.",
+    fullDescription: "Built a real-time communication platform using JavaScript, Node.js, and Express.js. Implemented authentication and instant messaging features to create a comprehensive community management solution.",
+    technologies: ["JavaScript", "Node.js", "Express.js", "Authentication"],
+    imageUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+    thumbnailUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80",
+    githubUrl: "https://github.com/Bhavneet-joshi/commapp",
+    liveUrl: "https://communion-app-sigma.vercel.app",
+    year: 2023,
+    client: "Community Connect",
+    category: "web",
+    featured: true,
+    tags: ["JavaScript", "Node.js", "Express.js", "Authentication", "Real-time"]
   },
   {
     id: "communion-app",
-    title: "CommApp",
-    description: "A community interaction and event management platform.",
-    fullDescription: "A platform designed to help communities organize events, share information, and connect members. Features include event creation, RSVP management, and community forums.",
-    technologies: ["React", "TypeScript", "Firebase", "Material UI"],
-    imageUrl: "/images/projects/communion-app.png",
-    thumbnailUrl: "/images/projects/communion-app-thumb.png",
-    githubUrl: "https://github.com/yourusername/communion-app",
+    title: "Communion App",
+    description: "CSS-focused community interaction platform.",
+    fullDescription: "Developed a community interaction platform with a focus on CSS for styling and design. Created an aesthetically pleasing user interface with responsive layouts and animations.",
+    technologies: ["CSS", "HTML", "JavaScript", "Responsive Design"],
+    imageUrl: "https://images.unsplash.com/photo-1517292987719-0369a794ec0f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+    thumbnailUrl: "https://images.unsplash.com/photo-1517292987719-0369a794ec0f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80",
+    githubUrl: "https://github.com/Bhavneet-joshi/communion-app",
     liveUrl: "https://communion-app-sigma.vercel.app",
-    deploymentUrl: "https://communion-app-sigma.vercel.app",
-    year: 2024,
-    client: "Community Organization",
+    year: 2023,
+    client: "Personal Project",
+    category: "web",
+    featured: false,
+    tags: ["CSS", "HTML", "JavaScript", "Responsive Design", "UI/UX"]
+  },
+  {
+    id: "clock-app",
+    title: "Clock App",
+    description: "Digital clock with multiple time zones and themes.",
+    fullDescription: "Created a digital clock application using TypeScript and CSS. Added customizable features including multiple time zones and themes. Ensured responsive design for cross-device compatibility.",
+    technologies: ["TypeScript", "CSS", "HTML", "Responsive Design"],
+    imageUrl: "https://images.unsplash.com/photo-1550534791-2677533605ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+    thumbnailUrl: "https://images.unsplash.com/photo-1550534791-2677533605ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80",
+    githubUrl: "https://github.com/Bhavneet-joshi/clock-app",
+    year: 2023,
+    client: "Personal Project",
+    category: "web",
+    featured: false,
+    tags: ["TypeScript", "CSS", "HTML", "UI/UX", "Time Management"]
+  },
+  {
+    id: "interactive-box",
+    title: "Interactive Box",
+    description: "Dynamic UI elements showcase with modern design patterns.",
+    fullDescription: "Created a dynamic showcase of interactive UI elements using modern web development techniques. This project demonstrates principles of effective user interaction design and responsive interfaces.",
+    technologies: ["HTML", "CSS", "JavaScript", "Responsive Design"],
+    imageUrl: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
+    thumbnailUrl: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80",
+    githubUrl: "https://github.com/Bhavneet-joshi/interactive-box",
+    liveUrl: "https://interactive-box-chi.vercel.app",
+    year: 2023,
+    client: "Personal Project",
+    category: "web",
+    featured: false,
+    tags: ["HTML", "CSS", "JavaScript", "UI/UX", "Interactive Design"]
+  },
+  {
+    id: "port_folio",
+    title: "Portfolio",
+    description: "Personal portfolio website built with TypeScript.",
+    fullDescription: "Developed a personal portfolio website to showcase projects and skills. Used TypeScript for type safety and enhanced development experience. Created a responsive and modern design.",
+    technologies: ["TypeScript", "React", "Responsive Design", "UI/UX"],
+    imageUrl: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+    thumbnailUrl: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80",
+    githubUrl: "https://github.com/Bhavneet-joshi/port_folio",
+    liveUrl: "https://port-folio-seven-mu.vercel.app",
+    year: 2023,
+    client: "Personal Project",
     category: "web",
     featured: true,
-    tags: ["React", "TypeScript", "Firebase", "Material UI", "Web Development"]
+    tags: ["TypeScript", "React", "Portfolio", "Responsive Design"]
   },
   {
-    id: "e-commerce",
-    title: "E-Commerce Platform",
-    description: "A full-featured e-commerce platform with product management and payment processing.",
-    fullDescription: "An e-commerce platform that allows businesses to manage products, process payments, and handle orders. Includes features like inventory management, user authentication, and order tracking.",
-    technologies: ["React", "Node.js", "PostgreSQL", "Stripe"],
-    imageUrl: "/images/projects/e-commerce.png",
-    thumbnailUrl: "/images/projects/e-commerce-thumb.png",
-    githubUrl: "https://github.com/yourusername/e-commerce",
-    liveUrl: "https://e-commerce-demo.vercel.app",
-    deploymentUrl: "https://e-commerce-demo.vercel.app",
-    year: 2023,
-    client: "Retail Business",
-    category: "web",
-    featured: false,
-    tags: ["React", "Node.js", "PostgreSQL", "Stripe", "Web Development"]
-  },
-  {
-    id: "task-manager",
-    title: "Task Manager",
-    description: "A collaborative task management application for teams.",
-    fullDescription: "A task management tool that helps teams organize and track their work. Features include task assignment, progress tracking, and team collaboration tools.",
-    technologies: ["React", "TypeScript", "GraphQL", "Apollo"],
-    imageUrl: "/images/projects/task-manager.png",
-    thumbnailUrl: "/images/projects/task-manager-thumb.png",
-    githubUrl: "https://github.com/yourusername/task-manager",
-    liveUrl: "https://task-manager-demo.vercel.app",
-    deploymentUrl: "https://task-manager-demo.vercel.app",
-    year: 2023,
-    client: "Tech Company",
-    category: "web",
-    featured: false,
-    tags: ["React", "TypeScript", "GraphQL", "Apollo", "Web Development"]
-  },
-  {
-    id: "portfolio-v1",
-    title: "Portfolio Website v1",
-    description: "My first portfolio website showcasing my projects and skills.",
-    fullDescription: "A personal portfolio website built to showcase my projects, skills, and experience. Features a clean design with smooth animations and responsive layout.",
-    technologies: ["HTML", "CSS", "JavaScript"],
-    imageUrl: "/images/projects/portfolio-v1.png",
-    thumbnailUrl: "/images/projects/portfolio-v1-thumb.png",
-    githubUrl: "https://github.com/yourusername/portfolio-v1",
-    liveUrl: "https://portfolio-v1.vercel.app",
-    deploymentUrl: "https://portfolio-v1.vercel.app",
+    id: "newspaper",
+    title: "Newspaper Distribution",
+    description: "Application for managing newspaper distribution and billing.",
+    fullDescription: "Developed a full-stack application using Java for newspaper distribution management. Implemented features for tracking deliveries, managing customers, and handling billing information.",
+    technologies: ["Java", "SQL", "Database Management", "Backend Development"],
+    imageUrl: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+    thumbnailUrl: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80",
+    githubUrl: "https://github.com/Bhavneet-joshi/Newspaper",
     year: 2022,
-    client: "Personal",
+    client: "Media Distribution Services",
+    category: "other",
+    featured: false,
+    tags: ["Java", "SQL", "Database", "Backend", "Business Software"]
+  },
+  {
+    id: "medcare",
+    title: "MedCare",
+    description: "Healthcare management system built with HTML.",
+    fullDescription: "Created a comprehensive healthcare management system for medicine donation and distribution. Built with HTML for frontend structure and design, focusing on usability and accessibility.",
+    technologies: ["HTML", "CSS", "JavaScript", "Healthcare"],
+    imageUrl: "https://images.unsplash.com/photo-1584982751601-97dcc096659c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+    thumbnailUrl: "https://images.unsplash.com/photo-1584982751601-97dcc096659c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80",
+    githubUrl: "https://github.com/Bhavneet-joshi/Medcare",
+    year: 2022,
+    client: "Healthcare Initiative",
     category: "web",
-    featured: true,
-    tags: ["HTML", "CSS", "JavaScript", "Web Development"]
-  },
-  {
-    id: "weather-app",
-    title: "Weather App",
-    description: "A weather application with real-time forecasts and location-based services.",
-    fullDescription: "A weather application that provides real-time weather forecasts based on user location. Features include weather alerts, hourly forecasts, and location search.",
-    technologies: ["React", "OpenWeather API", "Geolocation API"],
-    imageUrl: "/images/projects/weather-app.png",
-    thumbnailUrl: "/images/projects/weather-app-thumb.png",
-    liveUrl: "https://weather-app-demo.vercel.app",
-    year: 2023,
-    client: "Personal Project",
-    category: "web",
-    tags: ["React", "API Integration", "Web Development"]
-  },
-  {
-    id: "recipe-finder",
-    title: "Recipe Finder",
-    description: "An application to discover and save recipes from various cuisines.",
-    fullDescription: "A recipe discovery platform that allows users to search, save, and share recipes. Features include recipe filtering, user favorites, and meal planning.",
-    technologies: ["React", "Edamam API", "Local Storage"],
-    imageUrl: "/images/projects/recipe-finder.png",
-    thumbnailUrl: "/images/projects/recipe-finder-thumb.png",
-    liveUrl: "https://recipe-finder-demo.vercel.app",
-    year: 2023,
-    client: "Personal Project",
-    category: "web",
-    tags: ["React", "API Integration", "Web Development"]
-  },
-  {
-    id: "ui-kit",
-    title: "UI Component Library",
-    description: "A collection of reusable UI components for web applications.",
-    fullDescription: "A comprehensive UI component library built with React and TypeScript. Includes components like buttons, forms, modals, and navigation elements with consistent styling.",
-    technologies: ["React", "TypeScript", "Storybook"],
-    imageUrl: "/images/projects/ui-kit.png",
-    thumbnailUrl: "/images/projects/ui-kit-thumb.png",
-    liveUrl: "https://ui-kit-demo.vercel.app",
-    year: 2023,
-    client: "Design Agency",
-    category: "design",
-    tags: ["React", "TypeScript", "UI Design", "Component Library"]
-  },
-  {
-    id: "blog-platform",
-    title: "Blog Platform",
-    description: "A content management system for blogging and article publishing.",
-    fullDescription: "A blogging platform that allows users to create, edit, and publish articles. Features include rich text editing, image uploads, and content categorization.",
-    technologies: ["React", "Node.js", "MongoDB", "Express"],
-    imageUrl: "/images/projects/blog-platform.png",
-    thumbnailUrl: "/images/projects/blog-platform-thumb.png",
-    githubUrl: "https://github.com/yourusername/blog-platform",
-    liveUrl: "https://blog-platform-demo.vercel.app",
-    year: 2023,
-    client: "Content Creator",
-    category: "web",
-    tags: ["React", "Node.js", "MongoDB", "Express", "Web Development"]
-  },
-  {
-    id: "fitness-tracker",
-    title: "Fitness Tracker",
-    description: "A mobile application for tracking workouts and fitness goals.",
-    fullDescription: "A fitness tracking application that helps users monitor their workouts, set goals, and track progress. Features include exercise logging, progress charts, and workout plans.",
-    technologies: ["React Native", "Firebase", "Redux"],
-    imageUrl: "/images/projects/fitness-tracker.png",
-    thumbnailUrl: "/images/projects/fitness-tracker-thumb.png",
-    liveUrl: "https://fitness-tracker-demo.vercel.app",
-    year: 2023,
-    client: "Fitness Enthusiast",
-    category: "mobile",
-    tags: ["React Native", "Firebase", "Redux", "Mobile Development"]
-  },
-  {
-    id: "chat-app",
-    title: "Chat Application",
-    description: "A real-time messaging application with user authentication.",
-    fullDescription: "A real-time chat application that allows users to send messages, create groups, and share media. Features include user authentication, message history, and online status indicators.",
-    technologies: ["React", "Socket.io", "MongoDB", "Express"],
-    imageUrl: "/images/projects/chat-app.png",
-    thumbnailUrl: "/images/projects/chat-app-thumb.png",
-    githubUrl: "https://github.com/yourusername/chat-app",
-    liveUrl: "https://chat-app-demo.vercel.app",
-    year: 2023,
-    client: "Tech Startup",
-    category: "web",
-    tags: ["React", "Socket.io", "MongoDB", "Express", "Web Development"]
-  },
-  {
-    id: "food-delivery",
-    title: "Food Delivery App",
-    description: "A mobile application for food ordering and delivery tracking.",
-    fullDescription: "A food delivery application that allows users to browse restaurants, place orders, and track deliveries in real-time. Features include order history, payment processing, and delivery tracking.",
-    technologies: ["React Native", "Firebase", "Stripe"],
-    imageUrl: "/images/projects/food-delivery.png",
-    thumbnailUrl: "/images/projects/food-delivery-thumb.png",
-    liveUrl: "https://food-delivery-demo.vercel.app",
-    year: 2023,
-    client: "Restaurant Chain",
-    category: "mobile",
-    tags: ["React Native", "Firebase", "Stripe", "Mobile Development"]
+    featured: false,
+    tags: ["HTML", "CSS", "JavaScript", "Healthcare", "UI/UX"]
   }
-]; 
+];
+
+export function getProjectById(id: string): Project | undefined {
+  return PROJECTS.find(project => project.id === id);
+}
+
+export function getRelatedProjects(id: string, count: number = 3): Project[] {
+  const currentProject = getProjectById(id);
+  if (!currentProject) return PROJECTS.slice(0, count);
+  
+  return PROJECTS
+    .filter(project => project.id !== id && project.category === currentProject.category)
+    .slice(0, count);
+}
+
+export function getFeaturedProjects(count: number = 3): Project[] {
+  return PROJECTS
+    .filter(project => project.featured)
+    .slice(0, count);
+}
