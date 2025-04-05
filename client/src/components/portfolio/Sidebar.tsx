@@ -44,14 +44,14 @@ export function Sidebar({ className, onNavigate, currentPage = "about", isMobile
   // Mobile header
   if (isMobile) {
     return (
-      <div className={cn("w-full bg-background flex justify-between items-center p-4 border-b border-border sticky top-0 z-10", className)}>
+      <div className={cn("w-full bg-background flex justify-between items-center p-4 border-b border-border fixed top-0 left-0 right-0 z-50", className)}>
         {currentPage !== "about" ? (
           <button 
             onClick={() => onNavigate?.("about")}
             className="flex items-center text-foreground/80"
           >
             <ArrowLeft className="h-4 w-4 mr-2" />
-            <span>Back</span>
+            <span>Back to Home</span>
           </button>
         ) : (
           <div className="text-xl font-bold text-foreground">Portfolio</div>
@@ -77,7 +77,7 @@ export function Sidebar({ className, onNavigate, currentPage = "about", isMobile
         
         {menuOpen && (
           <motion.div 
-            className="absolute top-full left-0 right-0 bg-background shadow-lg border-t border-border p-4 z-20"
+            className="absolute top-full left-0 right-0 bg-background shadow-lg border-t border-border p-4 z-50 max-h-[70vh] overflow-y-auto"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ type: "spring", damping: 20 }}

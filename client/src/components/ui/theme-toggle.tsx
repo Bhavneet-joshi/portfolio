@@ -15,7 +15,7 @@ export function ThemeToggle({ className, variant = "icon" }: ThemeToggleProps) {
   const iconVariants = {
     initial: { scale: 0.6, rotate: 0, opacity: 0 },
     animate: { scale: 1, rotate: 0, opacity: 1 },
-    exit: { scale: 0.6, rotate: 90, opacity: 0 },
+    exit: { scale: 0.6, rotate: 45, opacity: 0 },
   };
 
   if (variant === "button") {
@@ -64,40 +64,45 @@ export function ThemeToggle({ className, variant = "icon" }: ThemeToggleProps) {
   }
   
   return (
-    <Button
-      variant="ghost"
-      size="icon"
-      onClick={toggleTheme}
-      className={cn(
-        "rounded-full",
-        theme === "dark" ? "hover:bg-slate-800" : "hover:bg-slate-200",
-        className
-      )}
+    <motion.div 
+      whileHover={{ rotate: 45 }}
+      transition={{ type: "spring", stiffness: 300, damping: 20 }}
     >
-      <span className="sr-only">Toggle theme</span>
-      {theme === "dark" ? (
-        <motion.span
-          key="dark-icon"
-          initial="initial"
-          animate="animate"
-          exit="exit"
-          variants={iconVariants}
-          transition={{ duration: 0.3 }}
-        >
-          <Moon className="h-5 w-5" />
-        </motion.span>
-      ) : (
-        <motion.span
-          key="light-icon"
-          initial="initial"
-          animate="animate"
-          exit="exit"
-          variants={iconVariants}
-          transition={{ duration: 0.3 }}
-        >
-          <Sun className="h-5 w-5" />
-        </motion.span>
-      )}
-    </Button>
+      <Button
+        variant="ghost"
+        size="icon"
+        onClick={toggleTheme}
+        className={cn(
+          "rounded-full",
+          theme === "dark" ? "hover:bg-slate-800" : "hover:bg-slate-200",
+          className
+        )}
+      >
+        <span className="sr-only">Toggle theme</span>
+        {theme === "dark" ? (
+          <motion.span
+            key="dark-icon"
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            variants={iconVariants}
+            transition={{ duration: 0.3 }}
+          >
+            <Moon className="h-5 w-5" />
+          </motion.span>
+        ) : (
+          <motion.span
+            key="light-icon"
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            variants={iconVariants}
+            transition={{ duration: 0.3 }}
+          >
+            <Sun className="h-5 w-5" />
+          </motion.span>
+        )}
+      </Button>
+    </motion.div>
   );
 }

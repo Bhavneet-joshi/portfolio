@@ -23,6 +23,10 @@ export default function Home() {
   
   const handleNavigate = (page: string) => {
     setCurrentPage(page);
+    // Scroll to top when navigating on mobile
+    if (isMobile) {
+      window.scrollTo(0, 0);
+    }
   };
   
   // Mobile view with page switching
@@ -31,23 +35,25 @@ export default function Home() {
       <div className="min-h-screen bg-background">
         <Sidebar isMobile={true} currentPage={currentPage} onNavigate={handleNavigate} />
         
-        {currentPage === "about" && <AboutPage />}
-        {currentPage === "portfolio" && <PortfolioPage 
-          statsOverride={{
-            projects: 11,
-            awards: 15,
-            experience: 1
-          }}
-        />}
-        {currentPage === "experience" && <ExperiencePage onBack={() => handleNavigate("portfolio")} />}
-        {currentPage === "github" && <GitHubPage onBack={() => handleNavigate("portfolio")} />}
-        {currentPage === "projects" && <ProjectsPage onBack={() => handleNavigate("portfolio")} />}
-        {currentPage === "skills" && <SkillsPage onBack={() => handleNavigate("portfolio")} />}
-        {currentPage === "certificates" && (
-          <div className="bg-background min-h-[calc(100vh-65px)] p-6">
-            <CertificatesPage onBack={() => handleNavigate("portfolio")} />
-          </div>
-        )}
+        <div className="pt-16"> {/* Add padding to account for fixed header */}
+          {currentPage === "about" && <AboutPage />}
+          {currentPage === "portfolio" && <PortfolioPage 
+            statsOverride={{
+              projects: 11,
+              awards: 15,
+              experience: 1
+            }}
+          />}
+          {currentPage === "experience" && <ExperiencePage onBack={() => handleNavigate("about")} />}
+          {currentPage === "github" && <GitHubPage onBack={() => handleNavigate("about")} />}
+          {currentPage === "projects" && <ProjectsPage onBack={() => handleNavigate("about")} />}
+          {currentPage === "skills" && <SkillsPage onBack={() => handleNavigate("about")} />}
+          {currentPage === "certificates" && (
+            <div className="bg-background min-h-[calc(100vh-65px)] p-6">
+              <CertificatesPage onBack={() => handleNavigate("about")} />
+            </div>
+          )}
+        </div>
         
         <div className="text-center text-foreground/50 text-xs p-4 border-t border-border">
           © {new Date().getFullYear()} {name} • Portfolio
