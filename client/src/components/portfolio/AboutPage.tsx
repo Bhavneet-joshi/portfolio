@@ -18,26 +18,26 @@ export function AboutPage() {
   const featuredProjects = [
     {
       title: "Construction Website",
-      url: "https://construction-website.vercel.app",
-      githubUrl: "https://github.com/yourusername/construction-website",
+      url: "https://cons-ruddy.vercel.app",
+      githubUrl: "https://github.com/Bhavneet-joshi/construction_website",
       description: "Developed a responsive website for a construction company. Used React.js, TypeScript, and Bootstrap."
     },
     {
       title: "Picture Pass",
       url: "https://picture-pass.vercel.app/",
-      githubUrl: "https://github.com/yourusername/picture-pass",
+      githubUrl: "https://github.com/Bhavneet-joshi/Picture_Pass",
       description: "Developed a dynamic image display application using React.js, Tailwind CSS, and Material UI. Integrated external APIs for real-time images. Created a responsive and visually appealing UI."
     },
     {
       title: "CommApp",
       url: "https://communion-app-sigma.vercel.app",
-      githubUrl: "https://github.com/yourusername/commapp",
+      githubUrl: "https://github.com/Bhavneet-joshi/commapp",
       description: "Built a real-time communication platform using JavaScript, Node.js, and Express.js. Implemented authentication and instant messaging."
     },
     {
       title: "Clock App",
       url: "https://clock-app-demo.vercel.app",
-      githubUrl: "https://github.com/yourusername/clock-app",
+      githubUrl: "https://github.com/Bhavneet-joshi/clock-app",
       description: "Created a digital clock application using TypeScript and CSS. Added customizable features including multiple time zones and themes. Ensured responsive design for cross-device compatibility."
     }
   ];
