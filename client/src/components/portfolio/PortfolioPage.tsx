@@ -3,18 +3,29 @@ import { useState } from "react";
 import { PORTFOLIO_DATA } from "@/lib/constants";
 import { FeaturedProjectCard } from "./FeaturedProjectCard";
 import { StatsCard } from "./StatsCard";
-import { ClientsCard } from "./ClientsCard";
-import { AwardsCard } from "./AwardsCard";
 import { ProjectDetail } from "./ProjectDetail";
 import { ProjectsPage } from "./ProjectsPage";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import { staggerContainerVariants, fadeUpVariants } from "@/lib/animations";
+import { fadeUpVariants } from "@/lib/animations";
 import { StaggerChildren, PageTransition } from "@/components/ui/loading-animation";
+import CustomProjects from "./CustomProjects";
+import { ExperienceCard } from "./ExperienceCard";
 
-export function PortfolioPage() {
+interface PortfolioPageProps {
+  statsOverride?: {
+    projects: number;
+    awards: number;
+    experience: number;
+  };
+}
+
+export function PortfolioPage({ statsOverride }: PortfolioPageProps) {
   const { stats } = PORTFOLIO_DATA;
   const [selectedProjectId, setSelectedProjectId] = useState<string | null>(null);
+  
+  // Use overridden stats if provided
+  const displayStats = statsOverride || stats;
   
   // If a project is selected, show the project detail view
   if (selectedProjectId) {
@@ -56,13 +67,13 @@ export function PortfolioPage() {
           <motion.div variants={fadeUpVariants} custom={1}>
             <div className="grid grid-cols-2 gap-4 mb-6">
               <StatsCard 
-                count={stats.projects} 
+                count={displayStats.projects} 
                 label="Projects" 
                 color="secondary" 
                 onClick={() => setSelectedProjectId("projects")}
               />
               <StatsCard 
-                count={stats.awards} 
+                count={displayStats.awards} 
                 label="Awards" 
                 color="primary" 
               />
@@ -70,11 +81,11 @@ export function PortfolioPage() {
           </motion.div>
           
           <motion.div className="mb-6" variants={fadeUpVariants} custom={2}>
-            <ClientsCard />
+            <CustomProjects />
           </motion.div>
           
           <motion.div className="mb-6" variants={fadeUpVariants} custom={3}>
-            <AwardsCard count={stats.globalAwards} />
+            <ExperienceCard />
           </motion.div>
         </StaggerChildren>
       </div>

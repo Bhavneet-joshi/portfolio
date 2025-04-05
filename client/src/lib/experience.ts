@@ -15,7 +15,7 @@ export const EXPERIENCES: Experience[] = [
   {
     id: "exp1",
     position: "Junior Engineer",
-    company: "SMCK",
+    company: "SM Core Inc.",
     location: "Remote",
     startDate: "Oct 2024",
     endDate: "Present",

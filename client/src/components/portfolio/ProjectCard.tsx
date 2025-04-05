@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { Link } from "wouter";
 import type { Project } from "@/lib/projects";
 import { ExternalLink, Github } from "lucide-react";
 
@@ -11,71 +10,53 @@ interface ProjectCardProps {
 export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
   return (
     <motion.div
-      initial={{ y: 20, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.4, delay: 0.1 * index }}
-      className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all group"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      className="bg-card rounded-lg border border-border p-6 hover:border-primary/50 transition-colors"
     >
-      <div className="relative">
-        <Link href={`/project/${project.id}`}>
-          <div 
-            className="h-48 bg-cover bg-center"
-            style={{ backgroundImage: `url("${project.thumbnailUrl || project.imageUrl}")` }}
-          >
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
-              <span className="text-white font-medium">View Details</span>
-            </div>
+      <div className="flex flex-col gap-4">
+        <div className="flex items-start justify-between">
+          <div>
+            <h3 className="text-xl font-semibold text-foreground">{project.title}</h3>
+            <p className="text-muted-foreground mt-1">{project.description}</p>
           </div>
-        </Link>
-      </div>
-      
-      <div className="p-5">
-        <div className="flex items-center justify-between mb-3">
-          <h3 className="font-bold text-lg truncate">{project.title}</h3>
-          <span className="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600">{project.category}</span>
-        </div>
-        
-        <p className="text-gray-600 text-sm line-clamp-2 mb-4">{project.description}</p>
-        
-        <div className="flex items-center justify-between">
-          <div className="flex space-x-2">
-            {project.technologies.slice(0, 3).map((tech, i) => (
-              <span 
-                key={i} 
-                className="text-xs bg-gray-100 px-2 py-1 rounded text-gray-700"
-              >
-                {tech}
-              </span>
-            ))}
-            {project.technologies.length > 3 && (
-              <span className="text-xs bg-gray-100 px-2 py-1 rounded text-gray-700">
-                +{project.technologies.length - 3}
-              </span>
-            )}
-          </div>
-          
-          <div className="flex space-x-2">
-            {(project.deploymentUrl || project.liveUrl) && (
-              <a 
-                href={project.deploymentUrl || project.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-500 hover:text-primary"
-              >
-                <ExternalLink className="h-4 w-4" />
-              </a>
-            )}
+          <div className="flex gap-2">
             {project.githubUrl && (
-              <a 
+              <a
                 href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-500 hover:text-primary"
+                className="text-muted-foreground hover:text-foreground transition-colors"
+                aria-label={`View ${project.title} on GitHub`}
+                title={`View ${project.title} on GitHub`}
               >
-                <Github className="h-4 w-4" />
+                <Github className="h-5 w-5" />
+              </a>
+            )}
+            {(project.liveUrl || project.deploymentUrl) && (
+              <a
+                href={project.liveUrl || project.deploymentUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-foreground transition-colors"
+                aria-label={`Visit live site for ${project.title}`}
+                title={`Visit live site for ${project.title}`}
+              >
+                <ExternalLink className="h-5 w-5" />
               </a>
             )}
           </div>
+        </div>
+        <div className="flex flex-wrap gap-2">
+          {project.technologies.map((tech) => (
+            <span
+              key={tech}
+              className="px-2 py-1 text-xs rounded-full bg-muted text-muted-foreground"
+            >
+              {tech}
+            </span>
+          ))}
         </div>
       </div>
     </motion.div>

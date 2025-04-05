@@ -1,9 +1,8 @@
 import { motion } from "framer-motion";
 import { EXPERIENCES } from "@/lib/experience";
-import { ArrowLeft, Calendar, MapPin, ExternalLink } from "lucide-react";
+import { ArrowLeft, Calendar, MapPin } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { fadeUpVariants, staggerContainerVariants } from "@/lib/animations";
+import { fadeUpVariants } from "@/lib/animations";
 import { PageTransition, StaggerChildren } from "@/components/ui/loading-animation";
 
 interface ExperiencePageProps {
@@ -14,7 +13,7 @@ export function ExperiencePage({ onBack }: ExperiencePageProps = {}) {
   return (
     <PageTransition>
       <div className="bg-background min-h-[calc(100vh-65px)] p-6">
-        {/* Header with back button */}
+        {/* Navigation back button with animation */}
         {onBack && (
           <div className="mb-6">
             <motion.button 
@@ -31,6 +30,7 @@ export function ExperiencePage({ onBack }: ExperiencePageProps = {}) {
         )}
         
         <div className="max-w-4xl mx-auto">
+          {/* Section header with fade-up animation */}
           <motion.div 
             className="mb-8"
             variants={fadeUpVariants}
@@ -43,6 +43,7 @@ export function ExperiencePage({ onBack }: ExperiencePageProps = {}) {
             </p>
           </motion.div>
           
+          {/* Experience cards with staggered animation */}
           <StaggerChildren className="space-y-10" staggerDelay={0.2}>
             {EXPERIENCES.map((experience, index) => (
               <motion.div 
@@ -52,7 +53,7 @@ export function ExperiencePage({ onBack }: ExperiencePageProps = {}) {
                 custom={index}
               >
                 <div className="grid md:grid-cols-5 gap-6 p-6">
-                  {/* Company Logo */}
+                  {/* Company logo or initial */}
                   <div className="md:col-span-1 flex justify-center md:justify-start items-start">
                     <div className="w-20 h-20 rounded-full bg-secondary flex items-center justify-center overflow-hidden">
                       {experience.logo ? (
@@ -69,7 +70,7 @@ export function ExperiencePage({ onBack }: ExperiencePageProps = {}) {
                     </div>
                   </div>
                   
-                  {/* Experience Details */}
+                  {/* Job details and accomplishments */}
                   <div className="md:col-span-4">
                     <div className="flex flex-wrap justify-between items-start mb-4">
                       <div>
@@ -102,6 +103,7 @@ export function ExperiencePage({ onBack }: ExperiencePageProps = {}) {
                       </ul>
                     </div>
                     
+                    {/* Skills used in this position */}
                     <div className="flex flex-wrap gap-2">
                       {experience.skills.map((skill, i) => (
                         <Badge key={i} variant="secondary" className="px-2 py-1">

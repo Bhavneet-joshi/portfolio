@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { ArrowLeft, ExternalLink, Github, Clock, User, Layers } from "lucide-react";
-import { useState } from "react";
 import { ProjectCard } from "./ProjectCard";
 import { getProjectById, getRelatedProjects } from "@/lib/projects";
 import { Button } from "@/components/ui/button";

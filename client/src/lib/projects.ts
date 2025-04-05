@@ -6,233 +6,157 @@ export interface Project {
   technologies: string[];
   imageUrl: string;
   thumbnailUrl: string;
+  githubUrl?: string;
   liveUrl?: string;
   deploymentUrl?: string;
-  githubUrl?: string;
   year: number;
   client: string;
   category: "web" | "mobile" | "design" | "other";
   featured?: boolean;
+  tags: string[];
 }
 
 export const PROJECTS: Project[] = [
   {
-    id: "1",
-    title: "MedCare",
-    description: "A user-friendly platform for seamless medicine donation and distribution.",
-    fullDescription: "Created a user-friendly platform for seamless medicine donation and distribution using Bootstrap, Node.js, MySQL, and Tailwind CSS. The application allows users to donate unused medicines and connects those in need with available donations through an intuitive interface.",
-    technologies: ["Bootstrap", "Node.js", "MySQL", "Tailwind CSS", "Material UI"],
-    imageUrl: "https://images.unsplash.com/photo-1584982751601-97dcc096659c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-    thumbnailUrl: "https://images.unsplash.com/photo-1584982751601-97dcc096659c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80",
-    githubUrl: "https://github.com/Bhavneet-joshi/Medcare",
-    liveUrl: "https://medcare-bhavneet.replit.app",
+    id: "construction_website",
+    title: "Construction Website",
+    description: "Responsive website for a construction company.",
+    fullDescription: "Developed a responsive website for a construction company using React.js, TypeScript, and Bootstrap. Features include project showcases, service offerings, and company information in a modern design.",
+    technologies: ["TypeScript", "React.js", "Bootstrap", "Responsive Design"],
+    imageUrl: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+    thumbnailUrl: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80",
+    githubUrl: "https://github.com/Bhavneet-joshi/construction_website",
+    liveUrl: "https://cons-ruddy.vercel.app",
     year: 2023,
-    client: "Healthcare Initiative",
+    client: "BuildRight Construction",
     category: "web",
-    featured: true
+    featured: true,
+    tags: ["TypeScript", "React.js", "Bootstrap", "Responsive Design"]
   },
   {
-    id: "2",
+    id: "picture_pass",
     title: "Picture Pass",
-    description: "Dynamic image browsing app with API integration and responsive design.",
-    fullDescription: "Used React.js for dynamic data integration from external APIs. Employed Tailwind CSS and Material UI for an adaptive, visually appealing interface. The application features responsive design principles to ensure optimal viewing across all device types.",
-    technologies: ["React.js", "Tailwind CSS", "Material UI", "APIs"],
-    imageUrl: "https://images.unsplash.com/photo-1557800636-894a64c1696f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-    thumbnailUrl: "https://images.unsplash.com/photo-1557800636-894a64c1696f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80",
+    description: "Dynamic image display application with API integration.",
+    fullDescription: "Developed a dynamic image display application using React.js, Tailwind CSS, and Material UI. Integrated external APIs for real-time images. Created a responsive and visually appealing UI.",
+    technologies: ["JavaScript", "React.js", "Tailwind CSS", "Material UI", "API Integration"],
+    imageUrl: "https://images.unsplash.com/photo-1526406915894-7bcd65f60845?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+    thumbnailUrl: "https://images.unsplash.com/photo-1526406915894-7bcd65f60845?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80",
     githubUrl: "https://github.com/Bhavneet-joshi/Picture_Pass",
-    liveUrl: "https://picture-pass.vercel.app",
-    deploymentUrl: "https://picture-pass.vercel.app",
+    liveUrl: "https://pass-app.vercel.app",
     year: 2023,
-    client: "Photography Enthusiasts",
+    client: "Personal Project",
     category: "web",
-    featured: true
+    featured: true,
+    tags: ["JavaScript", "React.js", "Tailwind CSS", "Material UI", "API Integration"]
   },
   {
-    id: "3",
-    title: "Newspaper Distribution",
-    description: "Full-stack app for managing newspaper distribution, billing, and assignments.",
-    fullDescription: "Crafting the Newspaper App offered immersive exposure to full-stack development, synergizing Java's backend logic with SQL's database management for a robust system encompassing newspaper distribution, billing, and assignments. Strategizing the schema for Customers, Hawkers, Newspapers, and Billings underscored the significance of meticulous database design.",
-    technologies: ["Java", "SQL", "Database Design", "Backend Development"],
-    imageUrl: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-    thumbnailUrl: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80",
-    githubUrl: "https://github.com/Bhavneet-joshi/Newspaper",
-    liveUrl: "https://newspaper-bhavneet.replit.app",
-    year: 2022,
-    client: "Media Distribution Services",
+    id: "commapp",
+    title: "CommApp",
+    description: "Real-time communication platform with authentication.",
+    fullDescription: "Built a real-time communication platform using JavaScript, Node.js, and Express.js. Implemented authentication and instant messaging features to create a comprehensive community management solution.",
+    technologies: ["JavaScript", "Node.js", "Express.js", "Authentication"],
+    imageUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+    thumbnailUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80",
+    githubUrl: "https://github.com/Bhavneet-joshi/commapp",
+    liveUrl: "https://communion-app-sigma.vercel.app",
+    year: 2023,
+    client: "Community Connect",
     category: "web",
-    featured: true
+    featured: true,
+    tags: ["JavaScript", "Node.js", "Express.js", "Authentication", "Real-time"]
   },
   {
-    id: "4",
+    id: "communion-app",
+    title: "Communion App",
+    description: "CSS-focused community interaction platform.",
+    fullDescription: "Developed a community interaction platform with a focus on CSS for styling and design. Created an aesthetically pleasing user interface with responsive layouts and animations.",
+    technologies: ["CSS", "HTML", "JavaScript", "Responsive Design"],
+    imageUrl: "https://images.unsplash.com/photo-1517292987719-0369a794ec0f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+    thumbnailUrl: "https://images.unsplash.com/photo-1517292987719-0369a794ec0f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80",
+    githubUrl: "https://github.com/Bhavneet-joshi/communion-app",
+    liveUrl: "https://communion-app-sigma.vercel.app",
+    year: 2023,
+    client: "Personal Project",
+    category: "web",
+    featured: false,
+    tags: ["CSS", "HTML", "JavaScript", "Responsive Design", "UI/UX"]
+  },
+  {
+    id: "clock-app",
+    title: "Clock App",
+    description: "Digital clock with multiple time zones and themes.",
+    fullDescription: "Created a digital clock application using TypeScript and CSS. Added customizable features including multiple time zones and themes. Ensured responsive design for cross-device compatibility.",
+    technologies: ["TypeScript", "CSS", "HTML", "Responsive Design"],
+    imageUrl: "https://images.unsplash.com/photo-1550534791-2677533605ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+    thumbnailUrl: "https://images.unsplash.com/photo-1550534791-2677533605ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80",
+    githubUrl: "https://github.com/Bhavneet-joshi/clock-app",
+    year: 2023,
+    client: "Personal Project",
+    category: "web",
+    featured: false,
+    tags: ["TypeScript", "CSS", "HTML", "UI/UX", "Time Management"]
+  },
+  {
+    id: "interactive-box",
     title: "Interactive Box",
-    description: "A dynamic and interactive UI elements showcase with modern design patterns.",
+    description: "Dynamic UI elements showcase with modern design patterns.",
     fullDescription: "Created a dynamic showcase of interactive UI elements using modern web development techniques. This project demonstrates principles of effective user interaction design and responsive interfaces.",
     technologies: ["HTML", "CSS", "JavaScript", "Responsive Design"],
     imageUrl: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
     thumbnailUrl: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80",
     githubUrl: "https://github.com/Bhavneet-joshi/interactive-box",
     liveUrl: "https://interactive-box-chi.vercel.app",
-    deploymentUrl: "https://interactive-box-chi.vercel.app",
     year: 2023,
     client: "Personal Project",
     category: "web",
-    featured: false
+    featured: false,
+    tags: ["HTML", "CSS", "JavaScript", "UI/UX", "Interactive Design"]
   },
   {
-    id: "5",
-    title: "Communion App",
-    description: "A platform for community interaction and event management.",
-    fullDescription: "Developed a comprehensive application for community engagement, allowing users to create and join events, communicate with other members, and build connections within interest groups.",
-    technologies: ["React", "Next.js", "Tailwind", "API Integration"],
-    imageUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-    thumbnailUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80",
-    githubUrl: "https://github.com/Bhavneet-joshi/communion-app",
-    liveUrl: "https://communion-app-sigma.vercel.app",
-    deploymentUrl: "https://communion-app-sigma.vercel.app",
+    id: "port_folio",
+    title: "Portfolio",
+    description: "Personal portfolio website built with TypeScript.",
+    fullDescription: "Developed a personal portfolio website to showcase projects and skills. Used TypeScript for type safety and enhanced development experience. Created a responsive and modern design.",
+    technologies: ["TypeScript", "React", "Responsive Design", "UI/UX"],
+    imageUrl: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+    thumbnailUrl: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80",
+    githubUrl: "https://github.com/Bhavneet-joshi/port_folio",
+    liveUrl: "https://port-folio-seven-mu.vercel.app",
     year: 2023,
-    client: "Community Connect",
-    category: "web",
-    featured: true
-  },
-  {
-    id: "13",
-    title: "Construction Website",
-    description: "A modern website for a construction company with portfolio showcase.",
-    fullDescription: "Designed and developed a professional website for a construction company, featuring project portfolios, service offerings, and client testimonials with a modern and responsive design.",
-    technologies: ["HTML", "CSS", "JavaScript", "Responsive Design"],
-    imageUrl: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-    thumbnailUrl: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80",
-    githubUrl: "https://github.com/Bhavneet-joshi/construction_website",
-    liveUrl: "https://cons-ruddy.vercel.app",
-    deploymentUrl: "https://cons-ruddy.vercel.app",
-    year: 2023,
-    client: "BuildRight Construction",
-    category: "web",
-    featured: false
-  },
-  {
-    id: "14",
-    title: "Zomato Webpage Clone",
-    description: "A responsive clone of Zomato's food delivery interface.",
-    fullDescription: "Created a responsive clone of Zomato's food delivery platform interface with attention to design details and user experience elements. This was my first web development project, demonstrating front-end skills and UI implementation.",
-    technologies: ["HTML", "CSS", "Responsive Design"],
-    imageUrl: "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-    thumbnailUrl: "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80",
-    githubUrl: "https://github.com/Bhavneet-joshi/zomato-webpage",
-    liveUrl: "https://zomato-webpage-lime.vercel.app",
-    deploymentUrl: "https://zomato-webpage-lime.vercel.app",
-    year: 2022,
     client: "Personal Project",
     category: "web",
-    featured: false
+    featured: true,
+    tags: ["TypeScript", "React", "Portfolio", "Responsive Design"]
   },
   {
-    id: "15",
-    title: "Event App",
-    description: "A comprehensive platform for event planning and management.",
-    fullDescription: "Developed a full-featured event management application allowing users to create, discover, and register for events. Implemented features like event categories, user profiles, and registration tracking.",
-    technologies: ["React", "Next.js", "Tailwind CSS", "API Integration"],
-    imageUrl: "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-    thumbnailUrl: "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80",
-    githubUrl: "https://github.com/Bhavneet-joshi/commapp",
-    liveUrl: "https://eventapp-silk.vercel.app",
-    deploymentUrl: "https://eventapp-silk.vercel.app",
-    year: 2023,
-    client: "Event Horizon",
+    id: "newspaper",
+    title: "Newspaper Distribution",
+    description: "Application for managing newspaper distribution and billing.",
+    fullDescription: "Developed a full-stack application using Java for newspaper distribution management. Implemented features for tracking deliveries, managing customers, and handling billing information.",
+    technologies: ["Java", "SQL", "Database Management", "Backend Development"],
+    imageUrl: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+    thumbnailUrl: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80",
+    githubUrl: "https://github.com/Bhavneet-joshi/Newspaper",
+    year: 2022,
+    client: "Media Distribution Services",
+    category: "other",
+    featured: false,
+    tags: ["Java", "SQL", "Database", "Backend", "Business Software"]
+  },
+  {
+    id: "medcare",
+    title: "MedCare",
+    description: "Healthcare management system built with HTML.",
+    fullDescription: "Created a comprehensive healthcare management system for medicine donation and distribution. Built with HTML for frontend structure and design, focusing on usability and accessibility.",
+    technologies: ["HTML", "CSS", "JavaScript", "Healthcare"],
+    imageUrl: "https://images.unsplash.com/photo-1584982751601-97dcc096659c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+    thumbnailUrl: "https://images.unsplash.com/photo-1584982751601-97dcc096659c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80",
+    githubUrl: "https://github.com/Bhavneet-joshi/Medcare",
+    year: 2022,
+    client: "Healthcare Initiative",
     category: "web",
-    featured: true
-  },
-  {
-    id: "6",
-    title: "Real Estate Platform",
-    description: "A web platform for property listings, searches, and virtual tours.",
-    fullDescription: "This Real Estate Platform revolutionizes property search and acquisition with its comprehensive features. It includes detailed property listings with high-quality images, advanced search filters based on location, price, and amenities, virtual 3D tours of properties, mortgage calculator and financing resources, and agent contact functionality. The platform is built with Next.js for performance and SEO optimization, and it uses a scalable backend with MongoDB for data management. The modern interface is designed with Tailwind CSS for a responsive user experience across all devices.",
-    technologies: ["Next.js", "MongoDB", "Tailwind CSS", "Three.js", "MapBox API"],
-    imageUrl: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1473&q=80",
-    thumbnailUrl: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-    liveUrl: "https://example.com/realestate",
-    year: 2022,
-    client: "HomeFinder Realty",
-    category: "web"
-  },
-  {
-    id: "7",
-    title: "Corporate Website Redesign",
-    description: "Complete redesign of a corporate website for improved user experience.",
-    fullDescription: "This project involved a comprehensive redesign of a corporate website to enhance user experience and reflect the company's updated brand identity. The redesign focused on simplified navigation, responsive layouts for all devices, improved content organization, and modern visual design. The new website features enhanced performance metrics, accessibility compliance, and integrated marketing tools. Built with Gatsby for fast loading times and WordPress as a headless CMS for content management flexibility, the site provides a seamless experience for both visitors and content administrators.",
-    technologies: ["Gatsby", "React", "WordPress", "GSAP", "Styled Components"],
-    imageUrl: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80",
-    thumbnailUrl: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-    liveUrl: "https://example.com/corporate",
-    year: 2023,
-    client: "GlobalTech Industries",
-    category: "web"
-  },
-  {
-    id: "8",
-    title: "Product Design for Smart Home Device",
-    description: "UI/UX and physical product design for an innovative smart home controller.",
-    fullDescription: "This project encompassed both physical product design and digital interface design for a smart home controller. The work involved creating an intuitive physical interface with ergonomic considerations, designing a companion mobile app for remote control, developing a cohesive design language across hardware and software, user testing and iteration refinement, and packaging design. The design process prioritized user-centered design principles to ensure that both the physical device and digital interface work seamlessly together, creating an intuitive and enjoyable user experience for controlling various smart home functions.",
-    technologies: ["Industrial Design", "UI/UX Design", "Figma", "Sketch", "3D Modeling"],
-    imageUrl: "https://images.unsplash.com/photo-1558002038-1055e2dae1d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-    thumbnailUrl: "https://images.unsplash.com/photo-1558002038-1055e2dae1d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-    liveUrl: "https://example.com/smarthome-design",
-    year: 2022,
-    client: "HomeConnect Technologies",
-    category: "design"
-  },
-  {
-    id: "9",
-    title: "AI-Powered Content Platform",
-    description: "A platform that uses AI to generate and curate personalized content.",
-    fullDescription: "The AI-Powered Content Platform leverages artificial intelligence to deliver personalized content experiences. The system analyzes user preferences and behavior to recommend relevant articles, videos, and podcasts. It features machine learning algorithms for content categorization, a content management system with automated tagging, personalization engines that adapt to user interests over time, and analytics dashboards for content performance monitoring. The platform is built using Python and TensorFlow for the AI components, with React for the frontend and Django for the backend services.",
-    technologies: ["Python", "TensorFlow", "React", "Django", "PostgreSQL", "Redis"],
-    imageUrl: "https://images.unsplash.com/photo-1677442135736-27d6aead7c4b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80",
-    thumbnailUrl: "https://images.unsplash.com/photo-1677442135736-27d6aead7c4b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-    liveUrl: "https://example.com/ai-content",
-    githubUrl: "https://github.com/example/ai-content",
-    year: 2023,
-    client: "MediaTech Innovations",
-    category: "web"
-  },
-  {
-    id: "10",
-    title: "Music Production App",
-    description: "A digital audio workstation for music production on mobile devices.",
-    fullDescription: "This Music Production App transforms mobile devices into powerful music creation tools. It features multi-track recording and editing capabilities, a library of virtual instruments and sound effects, beat matching and tempo adjustment tools, cloud synchronization for project access across devices, and sharing options for collaboration. The application is built with Swift for iOS and Kotlin for Android, with C++ for the audio processing engine to ensure high-performance and low-latency sound processing capabilities essential for music production.",
-    technologies: ["Swift", "Kotlin", "C++", "Audio Processing", "UI Design"],
-    imageUrl: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-    thumbnailUrl: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-    liveUrl: "https://example.com/music-app",
-    year: 2022,
-    client: "AudioCraft Studios",
-    category: "mobile"
-  },
-  {
-    id: "11",
-    title: "Restaurant Management System",
-    description: "An all-in-one solution for restaurant operations and customer management.",
-    fullDescription: "The Restaurant Management System provides comprehensive tools for efficient restaurant operations. It includes reservation and table management, order processing and kitchen communication, inventory and supply chain management, staff scheduling and performance tracking, and customer relationship management with loyalty programs. The system is built with Vue.js for the frontend interfaces, Laravel for the backend API, and MySQL for data storage. It offers both web-based admin interfaces and tablet/mobile solutions for on-floor staff, creating a seamless operational flow from customer arrival to departure.",
-    technologies: ["Vue.js", "Laravel", "MySQL", "WebSockets", "Payment Integration"],
-    imageUrl: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-    thumbnailUrl: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-    githubUrl: "https://github.com/example/restaurant-system",
-    year: 2023,
-    client: "Culinary Management Solutions",
-    category: "web"
-  },
-  {
-    id: "12",
-    title: "Augmented Reality Education App",
-    description: "An AR app that transforms learning through interactive 3D visualizations.",
-    fullDescription: "This Augmented Reality Education App revolutionizes learning by bringing complex concepts to life through interactive 3D visualizations. It features AR models of scientific, historical, and mathematical concepts, interactive lessons with progressive difficulty levels, quiz and assessment modules, progress tracking for students and educators, and offline content access for learning without internet connectivity. The app is built using Unity for 3D development, ARKit for iOS and ARCore for Android integration, with a Node.js backend for content management and user progress synchronization.",
-    technologies: ["Unity", "ARKit", "ARCore", "C#", "Node.js", "3D Modeling"],
-    imageUrl: "https://images.unsplash.com/photo-1626379953822-baec19c3accd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80",
-    thumbnailUrl: "https://images.unsplash.com/photo-1626379953822-baec19c3accd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-    liveUrl: "https://example.com/ar-education",
-    year: 2023,
-    client: "EduTech Innovations",
-    category: "mobile"
+    featured: false,
+    tags: ["HTML", "CSS", "JavaScript", "Healthcare", "UI/UX"]
   }
 ];
 
@@ -240,30 +164,17 @@ export function getProjectById(id: string): Project | undefined {
   return PROJECTS.find(project => project.id === id);
 }
 
-export function getRelatedProjects(id: string, limit: number = 2): Project[] {
-  const project = getProjectById(id);
-  if (!project) return [];
+export function getRelatedProjects(id: string, count: number = 3): Project[] {
+  const currentProject = getProjectById(id);
+  if (!currentProject) return PROJECTS.slice(0, count);
   
-  // Find projects in the same category, excluding the current project
-  const relatedProjects = PROJECTS
-    .filter(p => p.id !== id && p.category === project.category)
-    .slice(0, limit);
-  
-  // If we don't have enough related projects, add some from other categories
-  if (relatedProjects.length < limit) {
-    const remainingCount = limit - relatedProjects.length;
-    const otherProjects = PROJECTS
-      .filter(p => p.id !== id && p.category !== project.category && !relatedProjects.some(rp => rp.id === p.id))
-      .slice(0, remainingCount);
-    
-    relatedProjects.push(...otherProjects);
-  }
-  
-  return relatedProjects;
+  return PROJECTS
+    .filter(project => project.id !== id && project.category === currentProject.category)
+    .slice(0, count);
 }
 
-export function getFeaturedProjects(limit: number = 3): Project[] {
+export function getFeaturedProjects(count: number = 3): Project[] {
   return PROJECTS
     .filter(project => project.featured)
-    .slice(0, limit);
+    .slice(0, count);
 }

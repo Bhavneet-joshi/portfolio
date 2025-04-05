@@ -1,18 +1,46 @@
 import { motion } from "framer-motion";
-import { Briefcase, GraduationCap, Code, Calendar, MapPin } from "lucide-react";
-import { PORTFOLIO_DATA } from "@/lib/constants";
 import { EXPERIENCES } from "@/lib/experience";
+import { PORTFOLIO_DATA } from "@/lib/constants";
+import { Briefcase, Code, GraduationCap, MapPin, Calendar } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { fadeUpVariants, staggerContainerVariants } from "@/lib/animations";
+import { fadeUpVariants } from "@/lib/animations";
 import { PageTransition, StaggerChildren } from "@/components/ui/loading-animation";
+import { ProjectShowcase } from "./ProjectShowcase";
 
 export function AboutPage() {
-  const { name, bio, education, clients, skills } = PORTFOLIO_DATA;
+  const { name, bio, education, skills } = PORTFOLIO_DATA;
   
   // Split the name into parts for styling
   const nameParts = name.split(" ");
   const firstName = nameParts[0];
   const lastName = nameParts.slice(1).join(" ");
+
+  const featuredProjects = [
+    {
+      title: "Construction Website",
+      url: "https://construction-website.vercel.app",
+      githubUrl: "https://github.com/yourusername/construction-website",
+      description: "Developed a responsive website for a construction company. Used React.js, TypeScript, and Bootstrap."
+    },
+    {
+      title: "Picture Pass",
+      url: "https://pass-app.vercel.app",
+      githubUrl: "https://github.com/yourusername/pass-app",
+      description: "Developed a dynamic image display application using React.js, Tailwind CSS, and Material UI. Integrated external APIs for real-time images. Created a responsive and visually appealing UI."
+    },
+    {
+      title: "CommApp",
+      url: "https://communion-app-sigma.vercel.app",
+      githubUrl: "https://github.com/yourusername/commapp",
+      description: "Built a real-time communication platform using JavaScript, Node.js, and Express.js. Implemented authentication and instant messaging."
+    },
+    {
+      title: "Clock App",
+      url: "https://clock-app-demo.vercel.app",
+      githubUrl: "https://github.com/yourusername/clock-app",
+      description: "Created a digital clock application using TypeScript and CSS. Added customizable features including multiple time zones and themes. Ensured responsive design for cross-device compatibility."
+    }
+  ];
   
   return (
     <PageTransition>
@@ -54,6 +82,9 @@ export function AboutPage() {
               ))}
             </div>
           </motion.section>
+
+          {/* Featured Projects section */}
+          <ProjectShowcase projects={featuredProjects} />
           
           {/* Experience section */}
           <motion.section variants={fadeUpVariants} custom={1}>

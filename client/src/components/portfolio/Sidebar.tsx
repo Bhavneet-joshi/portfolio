@@ -1,6 +1,15 @@
 import { cn } from "@/lib/utils";
 import { useState } from "react";
-import { ArrowLeft, Menu } from "lucide-react";
+import { 
+  ArrowLeft, 
+  Menu, 
+  User, 
+  Briefcase, 
+  Github, 
+  Code2, 
+  Award,
+  Folder
+} from "lucide-react";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { motion } from "framer-motion";
 
@@ -11,27 +20,38 @@ interface SidebarProps {
   isMobile?: boolean;
 }
 
-export function Sidebar({ className, onNavigate, currentPage = "portfolio", isMobile = false }: SidebarProps) {
+export function Sidebar({ className, onNavigate, currentPage = "about", isMobile = false }: SidebarProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   
   const handleNavClick = (page: string) => {
     if (onNavigate) {
       onNavigate(page);
     }
-    setMenuOpen(false);
+    if (isMobile) {
+      setMenuOpen(false);
+    }
   };
+
+  const navItems = [
+    { id: "about", label: "About Me", icon: User },
+    { id: "experience", label: "Experience", icon: Briefcase },
+    { id: "github", label: "GitHub Stats", icon: Github },
+    { id: "projects", label: "Projects", icon: Folder },
+    { id: "skills", label: "Skills", icon: Code2 },
+    { id: "certificates", label: "Certificates", icon: Award }
+  ];
   
   // Mobile header
   if (isMobile) {
     return (
       <div className={cn("w-full bg-background flex justify-between items-center p-4 border-b border-border sticky top-0 z-10", className)}>
-        {currentPage !== "portfolio" ? (
+        {currentPage !== "about" ? (
           <button 
-            onClick={() => onNavigate?.("portfolio")}
+            onClick={() => onNavigate?.("about")}
             className="flex items-center text-foreground/80"
           >
             <ArrowLeft className="h-4 w-4 mr-2" />
-            <span>Portfolio</span>
+            <span>Back</span>
           </button>
         ) : (
           <div className="text-xl font-bold text-foreground">Portfolio</div>
@@ -49,6 +69,7 @@ export function Sidebar({ className, onNavigate, currentPage = "portfolio", isMo
           <button 
             onClick={() => setMenuOpen(!menuOpen)} 
             className="p-1 rounded-md hover:bg-muted"
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
           >
             <Menu className="h-5 w-5" />
           </button>
@@ -62,48 +83,22 @@ export function Sidebar({ className, onNavigate, currentPage = "portfolio", isMo
             transition={{ type: "spring", damping: 20 }}
           >
             <div className="flex flex-col space-y-4">
-              <button 
-                onClick={() => handleNavClick("about")}
-                className={`text-left py-2 ${currentPage === "about" ? "text-primary font-medium" : "text-foreground/70"}`}
-              >
-                About Me
-              </button>
-              <button 
-                onClick={() => handleNavClick("portfolio")}
-                className={`text-left py-2 ${currentPage === "portfolio" ? "text-primary font-medium" : "text-foreground/70"}`}
-              >
-                Portfolio
-              </button>
-              <button 
-                onClick={() => handleNavClick("experience")}
-                className={`text-left py-2 ${currentPage === "experience" ? "text-primary font-medium" : "text-foreground/70"}`}
-              >
-                Experience
-              </button>
-              <button 
-                onClick={() => handleNavClick("github")}
-                className={`text-left py-2 ${currentPage === "github" ? "text-primary font-medium" : "text-foreground/70"}`}
-              >
-                GitHub Stats
-              </button>
-              <button 
-                onClick={() => handleNavClick("stats")}
-                className={`text-left py-2 ${currentPage === "stats" ? "text-primary font-medium" : "text-foreground/70"}`}
-              >
-                Stats
-              </button>
-              <button 
-                onClick={() => handleNavClick("clients")}
-                className={`text-left py-2 ${currentPage === "clients" ? "text-primary font-medium" : "text-foreground/70"}`}
-              >
-                Clients
-              </button>
-              <button 
-                onClick={() => handleNavClick("certificates")}
-                className={`text-left py-2 ${currentPage === "certificates" ? "text-primary font-medium" : "text-foreground/70"}`}
-              >
-                Certificates
-              </button>
+              {navItems.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <button 
+                    key={item.id}
+                    onClick={() => handleNavClick(item.id)}
+                    className={`flex items-center text-left py-2 ${
+                      currentPage === item.id ? "text-primary font-medium" : "text-foreground/70"
+                    }`}
+                    aria-label={item.label}
+                  >
+                    <Icon className="h-5 w-5 mr-3" />
+                    {item.label}
+                  </button>
+                );
+              })}
             </div>
           </motion.div>
         )}
@@ -116,62 +111,22 @@ export function Sidebar({ className, onNavigate, currentPage = "portfolio", isMo
     <div className={cn("hidden md:flex w-20 bg-background flex-col justify-around items-center p-4 border-r border-border", className)}>
       <div className="flex h-full flex-col justify-between items-center w-full">
         <div className="flex flex-col items-center space-y-8">
-          <a 
-            href="#about" 
-            className="nav-item rotate-180 text-foreground/70 hover:text-primary transition-all font-medium tracking-wide"
-            style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
-            onClick={() => onNavigate && onNavigate("about")}
-          >
-            About
-          </a>
-          <a 
-            href="#portfolio" 
-            className="nav-item rotate-180 text-foreground/70 hover:text-primary transition-all font-medium tracking-wide"
-            style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
-            onClick={() => onNavigate && onNavigate("portfolio")}
-          >
-            Portfolio
-          </a>
-          <a 
-            href="#experience" 
-            className="nav-item rotate-180 text-foreground/70 hover:text-primary transition-all font-medium tracking-wide"
-            style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
-            onClick={() => onNavigate && onNavigate("experience")}
-          >
-            Experience
-          </a>
-          <a 
-            href="#github" 
-            className="nav-item rotate-180 text-foreground/70 hover:text-primary transition-all font-medium tracking-wide"
-            style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
-            onClick={() => onNavigate && onNavigate("github")}
-          >
-            GitHub
-          </a>
-          <a 
-            href="#stats" 
-            className="nav-item rotate-180 text-foreground/70 hover:text-primary transition-all font-medium tracking-wide"
-            style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
-            onClick={() => onNavigate && onNavigate("stats")}
-          >
-            Stats
-          </a>
-          <a 
-            href="#clients" 
-            className="nav-item rotate-180 text-foreground/70 hover:text-primary transition-all font-medium tracking-wide"
-            style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
-            onClick={() => onNavigate && onNavigate("clients")}
-          >
-            Clients
-          </a>
-          <a 
-            href="#certificates" 
-            className="nav-item rotate-180 text-foreground/70 hover:text-primary transition-all font-medium tracking-wide"
-            style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
-            onClick={() => onNavigate && onNavigate("certificates")}
-          >
-            Certificates
-          </a>
+          {navItems.map((item) => {
+            const Icon = item.icon;
+            return (
+              <button 
+                key={item.id}
+                onClick={() => onNavigate && onNavigate(item.id)}
+                className="group relative flex items-center justify-center w-12 h-12 rounded-lg hover:bg-muted transition-colors"
+                aria-label={item.label}
+              >
+                <Icon className="h-6 w-6 text-foreground/70 group-hover:text-primary transition-colors" />
+                <span className="absolute left-full ml-2 px-2 py-1 bg-background text-sm rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                  {item.label}
+                </span>
+              </button>
+            );
+          })}
         </div>
         
         <motion.div

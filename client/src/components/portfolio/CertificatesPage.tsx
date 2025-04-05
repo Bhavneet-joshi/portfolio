@@ -30,6 +30,7 @@ function CertificateDetail({ certificate, onClose }: CertificateDetailProps) {
           <button 
             onClick={onClose}
             className="absolute top-4 right-4 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full z-10"
+            aria-label="Close certificate details"
           >
             <X className="h-5 w-5" />
           </button>

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Github } from "lucide-react";
 import { GitHubStats } from "./GitHubStats";
 
 interface GitHubPageProps {
@@ -12,22 +12,30 @@ export function GitHubPage({ onBack }: GitHubPageProps = {}) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="bg-white min-h-[calc(100vh-65px)]"
+      className="bg-background min-h-[calc(100vh-65px)]"
     >
       {/* Header with back button if onBack is provided */}
       {onBack && (
-        <div className="sticky top-0 bg-white z-10 border-b border-gray-100 px-6 py-4">
-          <button onClick={onBack} className="flex items-center text-gray-700 hover:text-primary">
+        <div className="sticky top-0 bg-background/80 backdrop-blur-sm z-10 border-b border-border px-6 py-4">
+          <button 
+            onClick={onBack} 
+            className="flex items-center text-muted-foreground hover:text-primary transition-colors"
+          >
             <ArrowLeft className="h-4 w-4 mr-2" />
             <span>Back to Portfolio</span>
           </button>
         </div>
       )}
       
-      <div className="max-w-4xl mx-auto py-8 px-6">
-        <h1 className="text-3xl font-bold mb-2">GitHub Activity</h1>
-        <p className="text-gray-600 mb-8">
-          Real-time statistics from my GitHub profile showing repositories, contributions, and development activity.
+      <div className="max-w-5xl mx-auto py-12 px-6">
+        <div className="flex items-center gap-3 mb-6">
+          <Github className="h-8 w-8 text-primary" />
+          <h1 className="text-4xl font-bold tracking-tight">GitHub Activity</h1>
+        </div>
+        
+        <p className="text-muted-foreground text-lg mb-12 max-w-2xl">
+          Explore my GitHub profile to see my repositories, contributions, and development activity. 
+          I'm passionate about open source and building tools that make a difference.
         </p>
         
         <GitHubStats username="Bhavneet-joshi" />

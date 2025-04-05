@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
-import { Award, Maximize2 } from "lucide-react";
-import { useState } from "react";
+import { Maximize2 } from "lucide-react";
 import { CountUp } from "./CountUp";
 
 interface CertificatesCardProps {

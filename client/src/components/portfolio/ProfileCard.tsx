@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Mail, Info, Phone } from "lucide-react";
+import { Mail, Info, Phone, Linkedin } from "lucide-react";
 import { PORTFOLIO_DATA } from "@/lib/constants";
 
 interface ProfileCardProps {
@@ -14,6 +14,7 @@ export function ProfileCard({ name, email, status }: ProfileCardProps) {
   const firstName = nameParts[0];
   const lastName = nameParts.slice(1).join(" ");
   const phone = PORTFOLIO_DATA.phone || "";
+  const linkedinUrl = "https://www.linkedin.com/in/bhavneet-joshi-862557203/";
   
   return (
     <motion.div 
@@ -49,6 +50,10 @@ export function ProfileCard({ name, email, status }: ProfileCardProps) {
               <a href={`mailto:${email}`} className="text-sm text-white/80 flex items-center justify-center hover:text-white">
                 <span>{email}</span>
                 <Mail className="h-4 w-4 ml-2" />
+              </a>
+              <a href={linkedinUrl} target="_blank" rel="noopener noreferrer" className="text-sm text-white/80 flex items-center justify-center hover:text-white">
+                <span>LinkedIn Profile</span>
+                <Linkedin className="h-4 w-4 ml-2" />
               </a>
               {phone && (
                 <a href={`tel:${phone}`} className="text-sm text-white/80 flex items-center justify-center hover:text-white">
