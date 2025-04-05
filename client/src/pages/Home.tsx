@@ -44,13 +44,13 @@ export default function Home() {
               experience: 1
             }}
           />}
-          {currentPage === "experience" && <ExperiencePage onBack={() => handleNavigate("about")} />}
-          {currentPage === "github" && <GitHubPage onBack={() => handleNavigate("about")} />}
-          {currentPage === "projects" && <ProjectsPage onBack={() => handleNavigate("about")} />}
-          {currentPage === "skills" && <SkillsPage onBack={() => handleNavigate("about")} />}
+          {currentPage === "experience" && <ExperiencePage />}
+          {currentPage === "github" && <GitHubPage />}
+          {currentPage === "projects" && <ProjectsPage />}
+          {currentPage === "skills" && <SkillsPage />}
           {currentPage === "certificates" && (
             <div className="bg-background min-h-[calc(100vh-65px)] p-6">
-              <CertificatesPage onBack={() => handleNavigate("about")} />
+              <CertificatesPage />
             </div>
           )}
         </div>
