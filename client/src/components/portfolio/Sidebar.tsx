@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { 
   ArrowLeft, 
   Menu, 
@@ -22,6 +22,28 @@ interface SidebarProps {
 
 export function Sidebar({ className, onNavigate, currentPage = "about", isMobile = false }: SidebarProps) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
+  
+  // Handle clicks outside the menu to close it
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        menuOpen && 
+        menuRef.current && 
+        !menuRef.current.contains(event.target as Node) &&
+        buttonRef.current && 
+        !buttonRef.current.contains(event.target as Node)
+      ) {
+        setMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [menuOpen]);
   
   const handleNavClick = (page: string) => {
     if (onNavigate) {
@@ -67,6 +89,7 @@ export function Sidebar({ className, onNavigate, currentPage = "about", isMobile
           </motion.div>
           
           <button 
+            ref={buttonRef}
             onClick={() => setMenuOpen(!menuOpen)} 
             className="p-1 rounded-md hover:bg-muted"
             aria-label={menuOpen ? "Close menu" : "Open menu"}
@@ -77,6 +100,7 @@ export function Sidebar({ className, onNavigate, currentPage = "about", isMobile
         
         {menuOpen && (
           <motion.div 
+            ref={menuRef}
             className="absolute top-full left-0 right-0 bg-background shadow-lg border-t border-border p-4 z-50 max-h-[70vh] overflow-y-auto"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
