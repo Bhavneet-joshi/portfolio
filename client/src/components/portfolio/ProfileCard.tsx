@@ -11,7 +11,6 @@ interface ProfileCardProps {
 }
 
 export function ProfileCard({ name, email, status }: ProfileCardProps) {
-  const [showPhone, setShowPhone] = useState(false);
   const [isVerified, setIsVerified] = useState(false);
   
   // Split the name into parts for styling
@@ -24,7 +23,6 @@ export function ProfileCard({ name, email, status }: ProfileCardProps) {
   const handleRecaptchaChange = (token: string | null) => {
     if (token) {
       setIsVerified(true);
-      setShowPhone(true);
     }
   };
   
