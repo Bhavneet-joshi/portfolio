@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { Mail, Info, Phone, Linkedin } from "lucide-react";
 import { PORTFOLIO_DATA } from "@/lib/constants";
+import { useState } from "react";
+import ReCAPTCHA from "react-google-recaptcha";
 
 interface ProfileCardProps {
   name: string;
@@ -9,12 +11,22 @@ interface ProfileCardProps {
 }
 
 export function ProfileCard({ name, email, status }: ProfileCardProps) {
+  const [showPhone, setShowPhone] = useState(false);
+  const [isVerified, setIsVerified] = useState(false);
+  
   // Split the name into parts for styling
   const nameParts = name.split(" ");
   const firstName = nameParts[0];
   const lastName = nameParts.slice(1).join(" ");
   const phone = PORTFOLIO_DATA.phone || "";
   const linkedinUrl = "https://www.linkedin.com/in/bhavneet-joshi-862557203/";
+
+  const handleRecaptchaChange = (token: string | null) => {
+    if (token) {
+      setIsVerified(true);
+      setShowPhone(true);
+    }
+  };
   
   return (
     <motion.div 
@@ -56,10 +68,25 @@ export function ProfileCard({ name, email, status }: ProfileCardProps) {
                 <Linkedin className="h-4 w-4 ml-2" />
               </a>
               {phone && (
-                <a href={`tel:${phone}`} className="text-sm text-white/80 flex items-center justify-center hover:text-white">
-                  <span>{phone}</span>
-                  <Phone className="h-4 w-4 ml-2" />
-                </a>
+                <div className="text-sm text-white/80 flex flex-col items-center justify-center">
+                  {!isVerified ? (
+                    <div className="flex flex-col items-center gap-2">
+                      <span>Click to verify and view phone number</span>
+                      <ReCAPTCHA
+                        sitekey="6LdmjGArAAAAAGkHWJc7u-zifu4eMok57LciM81u"
+                        onChange={handleRecaptchaChange}
+                        theme="dark"
+                        size="normal"
+                        type="image"
+                      />
+                    </div>
+                  ) : (
+                    <a href={`tel:${phone}`} className="flex items-center justify-center hover:text-white">
+                      <span>{phone}</span>
+                      <Phone className="h-4 w-4 ml-2" />
+                    </a>
+                  )}
+                </div>
               )}
             </div>
           </div>
